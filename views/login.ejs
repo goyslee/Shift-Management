@@ -2,10 +2,10 @@
 <% include partials/header2 %>
 <div class="container">
     <div class="row">
-        <br>
-        <br>
-        <h1 style="text-align: center;">Login</h1>
-        <div style="width: 30%; margin: 25px auto;">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        <h1>Login</h1>
+        
             <form>
                 <div class="form-group">
                     <h4>Forgotten Password?</h4>
@@ -14,8 +14,8 @@
                     <a href="/forgot" class="btn btn-primary btn-block blackgold">Password reset!</a>
                 </div>
             </form>
-        </div>
-        <div style="width: 30%; margin: 25px auto;">
+        
+        
             <form action="/login" method="POST">
                 <div class="form-group"><input class="form-control" type="text" name="username" placeholder="username"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password" placeholder="password"></div>
