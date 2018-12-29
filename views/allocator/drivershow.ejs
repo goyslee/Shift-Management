@@ -10,6 +10,7 @@
 					<label>Add Reach truck driver</label>
 					<select class="form-control" name="driver">
 						<% foundColleague.forEach(function(colleague){ %>
+						<%console.log(colleague)%>
 						<% if (colleague.isIn == true && colleague.roles[0].trucks == true && colleague.isAllocated == false) { %>
 						<option  value="<%= colleague.fullName %>"><%= colleague.fullName %></option>
 						<% } else { %>

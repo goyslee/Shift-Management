@@ -89,7 +89,7 @@ router.get("/allocations", middleware.isLoggedIn, function(req, res) {
     });
 });
 // New allocator Create Route
-router.post("/", middleware.isLoggedIn, function(req, res) {
+router.post("/", middleware.isAdmin, function(req, res) {
     //Create a new Allocator and save it to the database  (DB)
     Allocator.find({}, function(err, foundAllocator) { // ez veglegesiti az elozo shift setupot
         foundAllocator.forEach(function(allocator) {
@@ -354,7 +354,7 @@ router.get("/:id/drivershow", middleware.isLoggedIn, function(req, res) { //orde
     });
 });
 //DRIVER UPDATE ROUTE Working fully
-router.post("/:id/drivershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/drivershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -436,7 +436,7 @@ router.get("/:id/pickershow", middleware.isLoggedIn, function(req, res) { //orde
     });
 });
 //PICKER UPDATE ROUTE Working fully
-router.post("/:id/pickershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/pickershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -516,7 +516,7 @@ router.get("/:id/chuteshow", middleware.isLoggedIn, function(req, res) { //order
     });
 });
 //CHUTE UPDATE ROUTE Working fully
-router.post("/:id/chuteshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/chuteshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -597,7 +597,7 @@ router.get("/:id/rtshow", middleware.isLoggedIn, function(req, res) { //order!!!
     });
 });
 //REACH TRUCK UPDATE ROUTE Working fully
-router.post("/:id/rtshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/rtshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -678,7 +678,7 @@ router.get("/:id/tippershow", middleware.isLoggedIn, function(req, res) { //orde
     });
 });
 //TIPPER UPDATE ROUTE Working fully
-router.post("/:id/tippershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/tippershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -759,7 +759,7 @@ router.get("/:id/runnershow", middleware.isLoggedIn, function(req, res) { //orde
     });
 });
 //RUNNER UPDATE ROUTE Working fully
-router.post("/:id/runnershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/runnershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -840,7 +840,7 @@ router.get("/:id/mtsshow", middleware.isLoggedIn, function(req, res) { //order!!
     });
 });
 //MTS UPDATE ROUTE Working fully
-router.post("/:id/mtsshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/mtsshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -921,7 +921,7 @@ router.get("/:id/rbshow", middleware.isLoggedIn, function(req, res) { //order!!!
     });
 });
 //RB UPDATE ROUTE Working fully
-router.post("/:id/rbshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/rbshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1002,7 +1002,7 @@ router.get("/:id/cscshow", middleware.isLoggedIn, function(req, res) { //order!!
     });
 });
 //CSC UPDATE ROUTE Working fully
-router.post("/:id/cscshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/cscshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1083,7 +1083,7 @@ router.get("/:id/hygieneshow", middleware.isLoggedIn, function(req, res) { //ord
     });
 });
 //HYGIENE UPDATE ROUTE Working fully
-router.post("/:id/hygieneshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/hygieneshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1164,7 +1164,7 @@ router.get("/:id/balershow", middleware.isLoggedIn, function(req, res) { //order
     });
 });
 //BALER UPDATE ROUTE Working fully
-router.post("/:id/balershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/balershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1245,7 +1245,7 @@ router.get("/:id/loadershow", middleware.isLoggedIn, function(req, res) { //orde
     });
 });
 //LOADER UPDATE ROUTE Working fully
-router.post("/:id/loadershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/loadershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1326,7 +1326,7 @@ router.get("/:id/yardshow", middleware.isLoggedIn, function(req, res) { //order!
     });
 });
 //YARD UPDATE ROUTE Working fully
-router.post("/:id/yardshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/yardshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1407,7 +1407,7 @@ router.get("/:id/rackingshow", middleware.isLoggedIn, function(req, res) { //ord
     });
 });
 //RACKING UPDATE ROUTE Working fully
-router.post("/:id/rackingshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/rackingshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1488,7 +1488,7 @@ router.get("/:id/manualpickshow", middleware.isLoggedIn, function(req, res) { //
     });
 });
 //MANUAL PICK UPDATE ROUTE Working fully
-router.post("/:id/manualpickshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/manualpickshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1569,7 +1569,7 @@ router.get("/:id/trainingshow", middleware.isLoggedIn, function(req, res) { //or
     });
 });
 //TRAINING UPDATE ROUTE Working fully
-router.post("/:id/trainingshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/trainingshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1650,7 +1650,7 @@ router.get("/:id/unionshow", middleware.isLoggedIn, function(req, res) { //order
     });
 });
 //UNION UPDATE ROUTE Working fully
-router.post("/:id/unionshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/unionshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1731,7 +1731,7 @@ router.get("/:id/vlsshow", middleware.isLoggedIn, function(req, res) { //order!!
     });
 });
 //VLS UPDATE ROUTE Working fully
-router.post("/:id/vlsshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/vlsshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1812,7 +1812,7 @@ router.get("/:id/pickmanagershow", middleware.isLoggedIn, function(req, res) { /
     });
 });
 //PICKMANAGER UPDATE ROUTE Working fully
-router.post("/:id/pickmanagershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/pickmanagershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1893,7 +1893,7 @@ router.get("/:id/chutemanagershow", middleware.isLoggedIn, function(req, res) { 
     });
 });
 //CHUTEMANAGER UPDATE ROUTE Working fully
-router.post("/:id/chutemanagershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/chutemanagershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1974,7 +1974,7 @@ router.get("/:id/truckmanagershow", middleware.isLoggedIn, function(req, res) { 
     });
 });
 //TRUCKMANAGER UPDATE ROUTE Working fully
-router.post("/:id/truckmanagershow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/truckmanagershow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -2055,7 +2055,7 @@ router.get("/:id/officeshow", middleware.isLoggedIn, function(req, res) { //orde
     });
 });
 //OFFICE UPDATE ROUTE Working fully
-router.post("/:id/officeshow", middleware.isLoggedIn, function(req, res) {
+router.post("/:id/officeshow", middleware.isAdmin, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -2115,7 +2115,7 @@ router.get("/:id/allocatorManualEdit", middleware.isLoggedIn, function(req, res)
     });
 }); //ez mashova kell
 //UPDATE ROUTE (update as a PUT request) //ez csinalja meg a vegleges rutint
-router.post("/:id", middleware.isLoggedIn, function(req, res) {
+router.post("/:id", middleware.isAdmin, function(req, res) {
     var pickers = []; //used**
     var drivers = []; //used
     var mtsC = []; //used
@@ -3284,7 +3284,7 @@ router.post("/:id", middleware.isLoggedIn, function(req, res) {
 });
 //
 // DELETE ALLOCATOR ROUTE
-router.delete("/:id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id", middleware.isAdmin, function(req, res) {
     //destroy blog
     Allocator.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
@@ -3297,7 +3297,7 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res) {
     //redirect somewhere
 });
 //Driver DESTROY
-router.delete("/:id/drivershow/:driver_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/drivershow/:driver_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3322,7 +3322,7 @@ router.delete("/:id/drivershow/:driver_id", middleware.isLoggedIn, function(req,
     });
 });
 //Picker DESTROY
-router.delete("/:id/pickershow/:picker_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/pickershow/:picker_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3347,7 +3347,7 @@ router.delete("/:id/pickershow/:picker_id", middleware.isLoggedIn, function(req,
     });
 });
 //Chute DESTROY
-router.delete("/:id/chuteshow/:chute_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/chuteshow/:chute_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3372,7 +3372,7 @@ router.delete("/:id/chuteshow/:chute_id", middleware.isLoggedIn, function(req, r
     });
 });
 //Rt DESTROY
-router.delete("/:id/rtshow/:rt_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/rtshow/:rt_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3397,7 +3397,7 @@ router.delete("/:id/rtshow/:rt_id", middleware.isLoggedIn, function(req, res) {
     });
 });
 //Tipper DESTROY
-router.delete("/:id/tippershow/:tipper_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/tippershow/:tipper_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3422,7 +3422,7 @@ router.delete("/:id/tippershow/:tipper_id", middleware.isLoggedIn, function(req,
     });
 });
 //Runner DESTROY
-router.delete("/:id/runnershow/:runner_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/runnershow/:runner_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3447,7 +3447,7 @@ router.delete("/:id/runnershow/:runner_id", middleware.isLoggedIn, function(req,
     });
 });
 //Mts DESTROY
-router.delete("/:id/mtsshow/:mts_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/mtsshow/:mts_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3472,7 +3472,7 @@ router.delete("/:id/mtsshow/:mts_id", middleware.isLoggedIn, function(req, res) 
     });
 });
 //Rb DESTROY
-router.delete("/:id/rbshow/:rb_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/rbshow/:rb_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3498,7 +3498,7 @@ router.delete("/:id/rbshow/:rb_id", middleware.isLoggedIn, function(req, res) {
     });
 });
 //Csc DESTROY
-router.delete("/:id/cscshow/:csc_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/cscshow/:csc_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3523,7 +3523,7 @@ router.delete("/:id/cscshow/:csc_id", middleware.isLoggedIn, function(req, res) 
     });
 });
 //Hygiene DESTROY
-router.delete("/:id/hygieneshow/:hygiene_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/hygieneshow/:hygiene_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3548,7 +3548,7 @@ router.delete("/:id/hygieneshow/:hygiene_id", middleware.isLoggedIn, function(re
     });
 });
 //Baler DESTROY
-router.delete("/:id/balershow/:baler_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/balershow/:baler_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3573,7 +3573,7 @@ router.delete("/:id/balershow/:baler_id", middleware.isLoggedIn, function(req, r
     });
 });
 //Loader DESTROY
-router.delete("/:id/loadershow/:loader_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/loadershow/:loader_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3598,7 +3598,7 @@ router.delete("/:id/loadershow/:loader_id", middleware.isLoggedIn, function(req,
     });
 });
 //Yard DESTROY
-router.delete("/:id/yardshow/:yard_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/yardshow/:yard_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3623,7 +3623,7 @@ router.delete("/:id/yardshow/:yard_id", middleware.isLoggedIn, function(req, res
     });
 });
 //Racking DESTROY
-router.delete("/:id/rackingshow/:racking_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/rackingshow/:racking_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3648,7 +3648,7 @@ router.delete("/:id/rackingshow/:racking_id", middleware.isLoggedIn, function(re
     });
 });
 //Manualpick DESTROY
-router.delete("/:id/manualpickshow/:manualpick_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/manualpickshow/:manualpick_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3673,7 +3673,7 @@ router.delete("/:id/manualpickshow/:manualpick_id", middleware.isLoggedIn, funct
     });
 });
 //Training DESTROY
-router.delete("/:id/trainingshow/:training_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/trainingshow/:training_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3698,7 +3698,7 @@ router.delete("/:id/trainingshow/:training_id", middleware.isLoggedIn, function(
     });
 });
 //Union DESTROY
-router.delete("/:id/unionshow/:union_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/unionshow/:union_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3723,7 +3723,7 @@ router.delete("/:id/unionshow/:union_id", middleware.isLoggedIn, function(req, r
     });
 });
 //Vls DESTROY
-router.delete("/:id/vlsshow/:vls_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/vlsshow/:vls_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3748,7 +3748,7 @@ router.delete("/:id/vlsshow/:vls_id", middleware.isLoggedIn, function(req, res) 
     });
 });
 //Pickmanager DESTROY
-router.delete("/:id/pickmanagershow/:pickmanager_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/pickmanagershow/:pickmanager_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3773,7 +3773,7 @@ router.delete("/:id/pickmanagershow/:pickmanager_id", middleware.isLoggedIn, fun
     });
 });
 //Chutemanager DESTROY
-router.delete("/:id/chutemanagershow/:chutemanager_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/chutemanagershow/:chutemanager_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3798,7 +3798,7 @@ router.delete("/:id/chutemanagershow/:chutemanager_id", middleware.isLoggedIn, f
     });
 });
 //Truckmanager DESTROY
-router.delete("/:id/truckmanagershow/:truckmanager_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/truckmanagershow/:truckmanager_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3823,7 +3823,7 @@ router.delete("/:id/truckmanagershow/:truckmanager_id", middleware.isLoggedIn, f
     });
 });
 //Office DESTROY
-router.delete("/:id/officeshow/:office_id", middleware.isLoggedIn, function(req, res) {
+router.delete("/:id/officeshow/:office_id", middleware.isAdmin, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
