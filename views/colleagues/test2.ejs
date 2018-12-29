@@ -1,0 +1,25 @@
+<select class="form-control" name="colleague[position]">
+                    <option value="Warehouse Team Manager">Warehouse Team Manager</option>
+                    <option value="Quad">Quad</option>
+                    <option value="Step Up">Step Up</option>
+                    <option value="Warehouse Operative">Warehouse Operative</option>
+                    <option value="Hygiene Colleague">Hygiene Colleague</option>
+            </select>
+
+
+            <option value="<%= colleague.position %>"><%= colleague.position %></option> 
+
+
+
+            <select class="form-control" name="colleague[position]">
+            <% const pos = ["Warehouse Team Manager", "Quad", "Step Up", "Warehouse Operative", "Hygiene Colleague"]; %>
+            <% for (let i = 0; i < pos.length; i++) {  %>
+                    <% if(colleague.position === pos[i]) { %>
+                           <option value="<%= pos[i] %>"><%= pos[i] %></option> 
+                           <% pos.splice(i, i); %>
+                       <% } %>
+                        <option value="<%= pos[i] %>"><%= pos[i] %></option>
+                <% }; %>
+            </select>
+
+            <option value="<%= colleague.position %>"><%= colleague.position %></option> 

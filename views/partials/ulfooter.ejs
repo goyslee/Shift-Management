@@ -1,0 +1,154 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<nav class="navbar navbar-inverse navbar-fixed-bottom hidenav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse1-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+   
+
+      <nav class="navbar navbar-inverse navbar-fixed-bottom hidenav">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse1-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse1-1">
+            <ul class="nav navbar-nav">
+
+<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Parancsok <span class="caret"></span></a>
+          <ul class="dropdown-menu .dropdown-menu-left">
+            <li><a href="#">Összes</a></li>
+            <li><a href="#">Kezdeti</a></li>
+          </ul>
+        </li>
+
+                
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Élővilág<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="tfdbMonstTableTemplate.html">Játszható Fajok</a></li>
+                  <li><a href="#">Szörnyek</a></li>
+                  <li><a href="#">Kelet</a></li>
+                  <li><a href="#">Sötét Föld</a></li>
+                  <li><a href="#">Kyorg</a></li>
+                  <li><a href="#">Esthar</a></li>
+                  <li><a href="#">Bo'adhun</a></li>
+                  <li><a href="#">Árnytünde</a></li>
+                  <li><a href="#">Ryuku</a></li>
+                  <li><a href="#">Kiégett Földek</a></li>
+                  <li><a href="#">Víz Síkja</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Épületek <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Összes</a></li>
+                  <li><a href="#">Labirintusok</a></li>
+                  <li><a href="#">Nyugat</a></li>
+                  <li><a href="#">Kelet</a></li>
+                  <li><a href="#">Sötét Föld</a></li>
+                  <li><a href="#">Kyorg</a></li>
+                  <li><a href="#">Esthar</a></li>
+                  <li><a href="#">Bo'adhun</a></li>
+                  <li><a href="#">Árnytünde</a></li>
+                  <li><a href="#">Ryuku</a></li>
+                  <li><a href="#">Kiégett Földek</a></li>
+                  <li><a href="#">Víz Síkja</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Szakértelmek <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Szintlépések <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li role="separator" class="divider"></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Varázslatok <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Taumaturgia</a></li>
+                  <li><a href="#">Teológia</a></li>
+                  <li><a href="#">Pszi</a></li>
+                  <li><a href="#">Lelőhelyek</a></li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Istenek <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Raia</a></li>
+                  <li><a href="#">Tharr</a></li>
+                  <li><a href="#">Sheran</a></li>
+                  <li><a href="#">Elenios</a></li>
+                  <li><a href="#">Fairlight</a></li>
+                  <li><a href="#">Leah</a></li>
+                  <li><a href="#">Dornodon</a></li>
+                  <li><a href="#">Chara - Din</a></li>
+
+                </ul>
+              </li>
+                <% if (!currentUser) { %>
+                <% } else if (administrator === currentUser.username) { %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/tfitemtable/newitem">New item</a></li>
+                </ul>
+              <% } %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Social <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/characterlist">Characters</a></li>
+                  <li><a href="/users">Users</a></li>
+                </ul>
+              </li>
+            </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="/bootstrap.min.js" type="text/javascript"></script>
+    <script src="jQuery.cssParentSelector.js "></script>
+    <script src="ul.js"></script>
+    <!--<script src="/tfdb.js"></script>-->
+</body>
+</html>

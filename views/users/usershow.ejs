@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<h4>Registered Users</h4>
+<hr class="style-four">
+<% if (noMatch.length > 1) { %>
+<div class="row text center">
+    <div class="col-md-12">
+        <h5 class="text-center col-md-12"><%= noMatch %></h5>
+        <% } %>
+        <div class="container">
+            <form action="/users" method="GET" class="form-inline">
+                <input type="text" name="search" placeholder="Colleague search..." class="form-control inputMin">
+                <input type="submit" value="Search" class="btn btn-default blackgold inputMin">
+            </form>
+            <p class="noprint"> Please search by Surname!</p>
+        </div>
+        <hr class="style-four">
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr><th>Username</th><th>Name</th><th>Role</th></tr>
+                    </thead>
+                    <tbody>
+                        <% user.forEach(function(foundUser){ %><!--id 1-->
+                        <tr>
+                            <td class="useranim">
+                                <a class="charlink" href="/user/<%= foundUser.id %>"><%= foundUser.username %></a>
+                            </td>
+                            <td>
+                                <%= foundUser.firstName + " " + foundUser.lastName %>
+                            </td>
+                            <td>
+                                <%= foundUser.role %>
+                            </td>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <% include ../partials/footer %>

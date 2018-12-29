@@ -1,0 +1,61 @@
+<% include partials/header %>
+<% include partials/header2 %>
+<div class="container">
+    <div class="row">
+        <br>
+        <br>
+        <h1 style="text-align: center;">Sign Up</h1>
+        <div style="width: 30%; margin: 25px auto;">
+
+                <form action="/register" method="POST">
+                    <div class="form-group"><input class="form-control" type="text" name="username" placeholder="username"></div>
+                    <div class="form-group"><input class="form-control" type="password" name="password" placeholder="password"></div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="firstName" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="lastName" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="phone" placeholder="phone number">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="addressA" placeholder="Address line 1">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="addressB" placeholder="Address line 2">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="addressTown" placeholder="Town">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="addressCounty" placeholder="County">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="addressCountry" placeholder="Country">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="postCode" placeholder="Post code">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="avatar" placeholder="avatar image">
+                    </div>
+                    <%/*v14*/%> <div class="form-group">
+                        <input class="form-control" type="password" name="adminCode" placeholder="admin code">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn byn-lg btn-primary btn-block blackgold">Sign Up!</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="/" class="btn btn-danger btn-block goldblack">Cancel</a>
+                    </div>
+                </form>
+
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

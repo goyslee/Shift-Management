@@ -1,0 +1,91 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<hr class="style-four noprint">
+<p></p>
+<% if(collInNum < 2) { %>
+<p></p>
+<% } else { %>
+<h4 id="count" >Colleagues Expected In:
+<%= collInNum %></h4>
+<% } %>
+<% if(agentcollInNum < 2) { %>
+<p></p>
+<% } else { %>
+<h4 id="count1" >Agency Colleagues In:
+<%= agentcollInNum %></h4>
+<% } %>
+<% if(hygieneNum === 0) { %>
+<p></p>
+<% } else { %>
+<h4 id="count2" >Hygiene Agency Colleagues In:
+<%= hygieneNum %></h4>
+<% } %>
+<div class="container noprint">
+    <% if (noMatch.length > 1) { %>
+    <div class="row text center">
+        <div class="col-md-12">
+            <p><%= noMatch %></p>
+            <% } %>
+            <div class="container">
+                <form action="/shift" method="GET" class="form-inline">
+                    <input type="text" name="search" placeholder="Colleague search..." class="form-control inputMin">
+                    <input type="submit" value="Search" class="btn btn-default blackgold inputMin">
+                </form>
+                <p class="noprint"> Please search by Surname!</p>
+            </div>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr><th class="noprint">Attended</th><th>User ID</th><th>Name</th><th>Start Date</th><!-- <th>Organization</th> --><th>Skills</th><!-- <th>Team</th> --><!-- <th>On Shift</th> -->
+                        </thead>
+                        <tbody>
+                            <% tablerow.forEach(function(tablerow){ %> <!--id 1-->
+                            <% if(tablerow.isIn && tablerow.isIn == true) { %>
+                            <tr>
+                                <td class="noprint">
+                                    <form class="myform" action="/shift/<%= tablerow.id %>?_method=PUT" method="POST">
+                                        <p><input class="check hidden" checked="checked" class="<%= tablerow.firstName + " " + tablerow.lastName %>" type="checkbox" name="colleague[attended]">
+                                    </p>
+                                    <% if (!tablerow.attended || tablerow.attended == false) { %>
+                                    <p><input type="submit" class="btn btn-sm blackgold" value="Attended" title="Add colleague to Attended group."></p>
+                                    <% } %>
+                                    <% if (tablerow.attended && tablerow.attended == true) { %>
+                                    <p class= "greenback" title="This colleague has attended.">Attended</p>
+                                    <% } %>
+                                </form>
+                            </td>
+                            <td>
+                                <%= tablerow.userNumber %>
+                            </td>
+                            <td class="szlink">
+                                <div id="<%= tablerow.firstName + " " + tablerow.lastName %>">
+                                    <a href="/colleagues/<%= tablerow._id %>" title="<%= tablerow.colleagueinfo %>"><%= tablerow.firstName + " " + tablerow.lastName %></a>
+                                </div>
+                            </td>
+                            <td>
+                                <%= tablerow.startDate.toLocaleDateString() %>
+                            </td>
+                            <!-- tablerow.organization -->
+                            <td class="uppercase">
+                                <% for(var prop in tablerow.roles[0]){ %>
+                                <%if(tablerow.roles[0][prop] === true && tablerow.position != "Warehouse Team Manager" && tablerow.position != "Shift Leader"){ %>
+                                <% if (prop == "chutes") { -%>
+                                <%prop = "CHILL PICK"%>
+                                <% } %>
+                                <% if (prop == "rt") { -%>
+                                <%prop = "COUNTER BALANCE"%>
+                                <% } %>
+                                <span class="smallfont"><%= prop + " | " %></span>
+                                <%}%>
+                                <%}%>
+                            </td>
+                        </tr>
+                        <% }}); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

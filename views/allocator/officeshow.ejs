@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12 col-xs-12 "></div>
+		<div class="col-md-4 col-sm-12 col-xs-12 ">
+			<p><a href="/allocator/allocations/allocationshow/<%= allocatorinfo._id %>"><%= allocatorinfo.time.toDateString() %> (Currently no middles or nights)</a></p>
+			<form action="/allocator/<%= allocatorinfo.id %>/officeshow" method="POST" id="positionForm">
+				<div class="form-group">
+					<label>Add Shift Manager</label>
+					<select class="form-control" name="office">
+						<% foundColleague.forEach(function(colleague){ %>
+						<% if (colleague.isIn == true && colleague.position === "Warehouse Team Manager" && colleague.isAllocated == false ||  colleague.isIn == true && colleague.position === "Shift Leader" && colleague.isAllocated == false) { %>
+						<option  value="<%= colleague.fullName %>"><%= colleague.fullName %></option>
+						<% } %>
+						<% }); %>
+					</select>
+					<hr>
+					<button class="btn btn-danger btn-block blackgold ">Add Shift Manager</button>
+				</div>
+			</form>
+			<table class="table-responsive">
+				<thead>
+					<tr><th>Shift Manager:</th></tr>
+				</thead>
+				<tbody>
+					<% var checkNum = 1; %>
+					<% foundColleague.forEach(function(foundColleague){ %>
+					<% foundOffice.forEach(function(foundOffice){ %>
+					<% if (foundOffice.author.id.equals(allocatorinfo.id) && foundOffice.colleagueId === foundColleague.id) { %>
+					<% checkNum++ %>
+					<tr><td><a href="/colleagues/<%= foundColleague.id %>" title=""><%= foundColleague.fullName %></a></td><td><form action="/allocator/<%= allocatorinfo.id  %>/officeshow/<%= foundOffice.id %>?_method=DELETE" method="POST"><button class="btn btn-primary btn-sm blackgold">Remove</button></form></td></tr>
+					<% } %>
+					<% }); %>
+					<% }); %>
+					<% if (checkNum < 2) { -%>
+					<tr><td>No need to assign a Shift Manager</td></tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div class="col-sm6 col-md-4 col-md-offset-4 col-sm-offset-3">
+		</div> -->
+		<div class="col-md-4 col-sm-12 col-xs-12 "></div>
+	</div>
+</div>
+<% include ../partials/footer %>

@@ -1,0 +1,164 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<div class="container smaller">
+    <div class='jumbotron'>
+        <h3 class='well feclec'>
+        <%= colleagueinfo.firstName + " " + colleagueinfo.lastName + " ( " + colleagueinfo.position + " )" %>
+        </h3>
+        <p class='info'>
+            <%= colleagueinfo.colleagueinfo %>
+        </p>
+        <br>
+        <p>
+            
+        </p>
+        <br>
+        <div class='table-responsive'>
+            <table class='table'>
+                <tbody>
+                    <tr class='tablediv'>
+                        <td class='uppercase'><span class="darker1">Roles:</span>
+                        <% for(var prop in colleagueinfo.roles[0]){ %>
+                        <%if(colleagueinfo.roles[0][prop] === true && colleagueinfo.position != "Warehouse Team Manager" && colleagueinfo.position != "Shift Leader"){ %>
+                        <%= prop + " | " %>
+                        <%}%>
+                        <%}%>
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<% if (!currentUser) { %>
+<% if(colleagueinfo.comments.length < 1){ %>
+<h4>There are no comments for this item yet. Be the first!</h4>
+<% } %>
+<hr class="style-four">
+<div class="container">
+    <div class="jumbotron jjj">
+        <% colleagueinfo.comments.forEach(function(comment){ %>
+        <div class="row commentborder">
+            <div class="col-md-12">
+                <strong class=""><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                <span class="pull-right"><%= comment.time.toDateString() + " " + comment.time.toLocaleTimeString() %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                
+            </div>
+        </div>
+        
+        <% }); %>
+    </div>
+</div>
+<% if (administrator === currentUser.username) { %>
+<a class="btn btn-primary btn-block blackgold" href="/colleagueinfos/<%= colleagueinfo._id %>/itemedit">Edit</a>
+<hr class="style-four">
+<form id="delete" action="/colleagueinfos/<%= colleagueinfo._id %>?_method=DELETE" method="POST">
+    <button class="btn btn-primary btn-block goldblack">Delete</button>
+</form>
+<% if(colleagueinfo.comments.length < 1){ %>
+<h4>There are no comments for this item yet. Be the first!</h4>
+<% } %>
+<hr class="style-four">
+<div class="container">
+    <div class="pull-left" style="margin-bottom: 2%;">
+        <a class="btn btn-success blackgold fixed" href="/colleagueinfos/<%= colleagueinfo._id %>/comments/new">Add New
+        Comment</a>
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron jjj">
+        <% colleagueinfo.comments.forEach(function(comment){ %>
+        <div class="row commentborder">
+            <div class="col-md-12">
+                <strong class=""><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                <span class="pull-right"><%= comment.time.toDateString()+ " " + comment.time.toLocaleTimeString()  %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                <a class="btn btn-sm btn-warning blackgold"
+                href="/colleagueinfos/<%= colleagueinfo._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                <form class="pull-right"
+                    action="/colleagueinfos/<%= colleagueinfo._id %>/comments/<%= comment._id %>?_method=DELETE"
+                    method="POST">
+                    <input type="submit" class="btn btn-sm btn-warning goldblack delete-form" value="Delete">
+                </form>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+<% } else { %>
+<% if(colleagueinfo.comments.length < 1){ %>
+<h4>There are no comments for this item yet. Be the first!</h4>
+<% } %>
+<hr class="style-four">
+<div class="container">
+    <div class="pull-left" style="margin-bottom: 2%;">
+        <a class="btn btn-success blackgold fixed" href="/colleagueinfos/<%= colleagueinfo._id %>/comments/new">Add New
+        Comment</a>
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron jjj">
+        <% colleagueinfo.comments.forEach(function(comment){ %>
+        <div class="row commentborder">
+            <div class="col-md-12">
+                <strong class=""><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                <span class="pull-right"><%= comment.time.toDateString() + " " + comment.time.toLocaleTimeString() %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                <a class="btn btn-sm btn-warning blackgold"
+                href="/colleagueinfos/<%= colleagueinfo._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                <form class="pull-right"
+                    action="/colleagueinfos/<%= colleagueinfo._id %>/comments/<%= comment._id %>?_method=DELETE"
+                    method="POST">
+                    <input type="submit" class="btn btn-sm btn-warning goldblack delete-form" value="Delete">
+                </form>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+<% } %>
+<% include ../partials/footer %>

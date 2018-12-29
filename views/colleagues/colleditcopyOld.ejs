@@ -1,0 +1,199 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<h1>Update <span class="darker"><%= colleague.firstName + " " + colleague.lastName %>'s</span> Details</h1>
+<div class="container">
+    
+    <form action="/colleagues/<%= colleague._id %>?_method=PUT" method="POST">
+        <div class="col-sm6 col-md-4 col-md-offset-4 col-sm-offset-3 affix pull-right" style="width: 30%; margin: 55px auto;">
+            <div class="form-group">
+                <label>Hours (if less than 8))</label>
+                <input class="form-control" type="text" name="colleague[actualHours]" value="<%= colleague.actualHours %>"> <hr>         
+                <button class="btn btn-primary btn-block blackgold">Update</button>
+                <a class="btn btn-primary btn-block goldblack" href="/">Back</a>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="col-sm6 col-md-3 col-md-offset-3 col-sm-offset-3 pull-right" style="width: 30%; margin: 55px auto;">
+            <label style="margin-bottom: 195%;"></label>
+            
+            <div class="form-group">
+                <label>Trucks trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Trucks (1-10)" name="colleague[rating][trucks]" value="<%= colleague.rating[0].trucks %>">
+            </div>
+            <div class="form-group">
+                <label>Chutes trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Chill Pick (1-10)" name="colleague[rating][chutes]" value="<%= colleague.rating[0].chutes %>">
+            </div>
+            <div class="form-group">
+                <label>Pick trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Pick (1-10)" name="colleague[rating][pick]" value="<%= colleague.rating[0].pick %>">
+            </div>
+            <div class="form-group">
+                <label>Outloading trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Outloading (1-10)" name="colleague[rating][loading]" value="<%=colleague.rating[0].loading %>">
+            </div>
+            <div class="form-group">
+                <label>Tip trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Tip (1-10)" name="colleague[rating][tip]" value="<%= colleague.rating[0].tip %>">
+            </div>
+            <div class="form-group">
+                <label>MTS trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="MTS (1-10)" name="colleague[rating][mts]" value="<%= colleague.rating[0].mts %>">
+            </div>
+            <div class="form-group">
+                <label>CSC trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" placeholder="CSC (1-10)"name="colleague[rating][csc]" value="<%= colleague.rating[0].csc %>">
+            </div>
+            <div class="form-group">
+                <label>R/T trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="R/T (1-10)" name="colleague[rating][rt]" value="<%= colleague.rating[0].rt %>">
+            </div>
+            <div class="form-group">
+                <label>R/B trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="R/B (1-10)" name="colleague[rating][rb]" value="<%= colleague.rating[0].rb %>">
+            </div>
+            <div class="form-group">
+                <label>Yard trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Yard (1-10)" name="colleague[rating][yard]" value="<%= colleague.rating[0].yard %>">
+            </div>
+            <div class="form-group">
+                <label>Racking trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Racking (1-10)" name="colleague[rating][racking]" value="<%= colleague.rating[0].racking %>">
+            </div>
+            <div class="form-group">
+                <label>Manual Pick trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Manual Pick (1-10)" name="colleague[rating][manual_pick]" value="<%= colleague.rating[0].manual_pick %>">
+            </div>
+            <div class="form-group">
+                <label>Baler trained (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Baler (1-10)" name="colleague[rating][baler]" value="<%= colleague.rating[0].baler %>">
+            </div>
+            <div class="form-group">
+                <label>Trainer (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Trainer (1-10)" name="colleague[rating][training]" value="<%= colleague.rating[0].training %>">
+            </div>
+            <div class="form-group">
+                <label>Union Rep (Update this colleague's rating on this role.)</label>
+                <input class="form-control" type="text" placeholder="Union Rep (1-10)" name="colleague[rating][union]" value="<%= colleague.rating[0].union %>">
+            </div>
+        </div>
+        <div class="col-sm6 col-md-3 col-md-offset-3 col-sm-offset-3 pull-right"style="width: 30%; margin: 55px auto;">
+            <div class="form-group">
+                <label>First Name</label>
+                <input class="form-control" type="text" name="colleague[firstName]" value="<%= colleague.firstName %>">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input class="form-control" type="text" name="colleague[lastName]" value="<%= colleague.lastName %>">
+            </div>
+            <div class="form-group">
+                <label>User ID</label>
+                <input class="form-control" type="text" name="colleague[userNumber]" value="<%= colleague.userNumber %>">
+            </div>
+            <div class="form-group">
+                <label>Start Date</label>
+                <input class="form-control" type="text" name="colleague[startDate]" value="<%= colleague.startDate %>">
+            </div>
+            <div class="form-group">
+            <label>Position (Select fom dropdown)</label>
+            <select class="form-control" name="colleague[position]">
+            <% var pos = ["Warehouse Team Manager", "Shift Leader", "Quad", "Step Up", "Warehouse Operative", "Hygiene Colleague"]; %>
+            <option value="<%= colleague.position %>"><%= colleague.position %></option>
+                <% for (let i = 0; i < pos.length; i++) {  %>
+                    <% if (pos[i] === colleague.position) { %>
+                          <% var index = pos.indexOf(pos[i]); %>
+                            <% if (index !== -1) {  %>
+                               <% pos[index] = "";  %>
+                           <% } %>                           
+                       <% } %>  
+                        <option value="<%= pos[i] %>"><%= pos[i] %></option>                
+                <% }; %>
+            </select>
+            </div>
+            <div class="form-group">
+                <label>Organization</label>
+                <input class="form-control" type="text" name="colleague[organization]" value="<%= colleague.organization %>">
+            </div>
+            <div class="form-group">
+                <label>Team</label>
+                <input class="form-control" type="text" name="colleague[team]" value="<%= colleague.team %>">
+            </div>
+            <div class="form-group">
+                <label>Additional informations</label>
+                <input class="form-control" type="text" name="colleague[colleagueinfo]" value="<%= colleague.colleagueinfo %>">
+            </div>
+            <div class="form-group">
+                <label>Trucks trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][trucks]" value="<%= colleague.roles[0].trucks %>">
+            </div>
+            <div class="form-group">
+                <label>Chill Pick trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][chutes]" value="<%= colleague.roles[0].chutes %>">
+            </div>
+            <div class="form-group">
+                <label>Pick trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][pick]" value="<%= colleague.roles[0].pick %>">
+            </div>
+            <div class="form-group">
+                <label>Outloading trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][loading]" value="<%=colleague.roles[0].loading %>">
+            </div>
+            <div class="form-group">
+                <label>Tip trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][tip]" value="<%= colleague.roles[0].tip %>">
+            </div>
+            <div class="form-group">
+                <label>MTS trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][mts]" value="<%= colleague.roles[0].mts %>">
+            </div>
+            <div class="form-group">
+                <label>CSC trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][csc]" value="<%= colleague.roles[0].csc %>">
+            </div>
+            <div class="form-group">
+                <label>R/T trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][rt]" value="<%= colleague.roles[0].rt %>">
+            </div>
+            <div class="form-group">
+                <label>R/B trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][rb]" value="<%= colleague.roles[0].rb %>">
+            </div>
+            <div class="form-group">
+                <label>Yard trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][yard]" value="<%= colleague.roles[0].yard %>">
+            </div>
+            <div class="form-group">
+                <label>Racking trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][racking]" value="<%= colleague.roles[0].racking %>">
+            </div>
+            <div class="form-group">
+                <label>Manual Pick trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][manual_pick]" value="<%= colleague.roles[0].manual_pick %>">
+            </div>
+            <div class="form-group">
+                <label>Baler trained (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][baler]" value="<%= colleague.roles[0].baler %>">
+            </div>
+            <div class="form-group">
+                <label>Trainer (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][training]" value="<%= colleague.roles[0].training %>">
+            </div>
+            <div class="form-group">
+                <label>Union Rep (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][union]" value="<%= colleague.roles[0].union %>">
+            </div>
+            <div class="form-group">
+                <label>Marshalling (Type <span class='darker'>"true"</span> if yes, leave it as it is otherwise.)</label>
+                <input class="form-control" type="text" name="colleague[roles][marshalling]" value="<%= colleague.roles[0].union %>">
+            </div>
+        </div>
+        
+        
+    </form>
+</div>
+</div>
+</div>
+
+<% include ../partials/footer %>

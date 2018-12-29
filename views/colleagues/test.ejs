@@ -1,0 +1,83 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<h4>Colleagues in the database</h4>
+<hr class="style-four">
+
+<div class="container">
+
+
+    <% if (noMatch.length > 1) { %>
+    <div class="row text center">
+        <div class="col-md-12">
+            <p><%= noMatch %></p>
+    <% } %>
+            <p>
+<%/*v15*/%>     <form action="/colleagues" method="GET" class="form-inline">
+<%/*v15*/%>         <div class="form-group">
+<%/*v15*/%>             <input type="text" name="search" placeholder="Colleague search..." class="form-control"> 
+<%/*v15*/%>             <input type="submit" value="Search" class="btn btn-default blackgold"> 
+<%/*v15*/%>          </div>
+<%/*v15*/%>     </form>
+Please search by Surname!
+<%/*v15*/%> </p>
+        </div> <%/*v15*/%>
+
+    </div>
+</div>  
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr><th>In Work</th><th>Name</th><th>Organization</th><th>Skills</th><th>Team</th></tr>
+        </thead>
+         <tbody>
+        <% tablerow.forEach(function(tablerow){ %> <!--id 1-->
+        <% if (tablerow.isIn = true) { %>
+           <tr>    
+                <td>
+                    <form action="/allocations/<%= tablerow._id %>?_method=PUT" method="POST">
+                        <div class="" style="width: 30%; margin: 55px auto;">
+                            <div class="">
+                                <input type="submit" name="colleague[isIn]" value="book" class="btn btn-danger btn-block blackgold">
+                            </div>
+                        </div>
+                    </form> 
+                </td>
+                <td class="szlink">
+                    <div id="<%= tablerow.firstName + " " + tablerow.lastName %>">
+                        <a href="/colleagues/<%= tablerow._id %>" title="<%= tablerow.colleagueinfo %>"><%= tablerow.firstName + " " + tablerow.lastName %></a>
+                    </div>
+                </td>
+                <td>
+                   <%= tablerow.organization %> 
+                </td>
+                <td class="uppercase">
+                    <% for(var prop in tablerow.roles[0]){ %>
+                            <%if(tablerow.roles[0][prop] === true){ %>
+                            <span class="smallfont"><%= prop + " | " %></span>
+                            <%}%>
+                            <%}%>
+                            
+                </td>
+                <td>
+                    <%= tablerow.team %>
+                </td>
+               <% }; %>
+            <% }); %>
+            </tr>
+        </tbody>
+       </table>
+       </div>
+       </div>
+       
+
+  
+</div>
+</div>
+
+
+
+
+
+
+<% include ../partials/footer %>

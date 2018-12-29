@@ -1,0 +1,32 @@
+<% include partials/header %>
+<% include partials/header2 %>
+<div class="container">
+    <div class="row">
+        <br>
+        <br>
+        <h1 style="text-align: center;">Login</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form>
+                <div class="form-group">
+                    <h4>Forgotten Password?</h4>
+                </div>
+                <div class="form-group">
+                    <a href="/forgot" class="btn btn-primary btn-block blackgold">Password reset!</a>
+                </div>
+            </form>
+        </div>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/login" method="POST">
+                <div class="form-group"><input class="form-control" type="text" name="username" placeholder="username"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="password"></div>
+                <div class="form-group">
+                    <button class="btn byn-lg btn-primary btn-block blackgold">Login</button>
+                </div>
+                <div class="form-group">
+                    <a href="/" class="btn btn-danger btn-block goldblack">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>

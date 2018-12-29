@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-sm-12 col-xs-12 "></div>
+		<div class="col-md-4 col-sm-12 col-xs-12 ">
+			<p><a href="/allocator/allocations/allocationshow/<%= allocatorinfo._id %>"><%= allocatorinfo.time.toDateString() %> (Currently no middles or nights)</a></p>
+			<form action="/allocator/<%= allocatorinfo.id %>/chuteshow" method="POST" id="positionForm">
+				<div class="form-group">
+					<label>Add Chill Picker</label>
+					<select class="form-control" name="chute">
+						<% foundColleague.forEach(function(colleague){ %>
+						<% if (colleague.isIn == true && colleague.roles[0].chutes == true && colleague.isAllocated == false || colleague.isIn == true && colleague.team === 9 && colleague.isAllocated == false) { %>
+						<option  value="<%= colleague.firstName + ' ' + colleague.lastName %>"><%= colleague.firstName + ' ' + colleague.lastName %></option>
+						<% } else { %>
+						<p>There are no more chill picker avaiable for <%= allocatorinfo.time.toDateString() %></p>
+						<% } %>
+						<% }); %>
+					</select>
+					<hr>
+					<button class="btn btn-danger btn-block blackgold ">Add Chill Picker</button>
+				</div>
+			</form>
+			<table class="table-responsive">
+				<thead>
+					<tr><th>Chutes:</th></tr>
+				</thead>
+				<tbody>
+					<% var checkNum = 1; %>
+					<%# eeeeeeeee%>
+					<% foundColleague.forEach(function(foundColleague){ %>
+					<% foundChute.forEach(function(foundChute){ %>
+					<% if (foundChute.author.id.equals(allocatorinfo.id) && foundChute.colleagueId === foundColleague.id) { %>
+					<% checkNum++ %>
+					<tr><td><a href="/colleagues/<%= foundColleague.id %>" title=""><%= foundColleague.fullName %></a></td><td><form action="/allocator/<%= allocatorinfo.id  %>/chuteshow/<%= foundChute.id %>?_method=DELETE" method="POST"><button class="btn btn-primary btn-sm blackgold">Remove</button></form></td></tr>
+					<% } %>
+					<% }); %>
+					<% }); %>
+					<%# eeeeeeeee%>
+					<% if (checkNum < 2) { -%>
+					<tr><td>Nobody is assinged to Chill pick</td></tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div class="col-sm6 col-md-4 col-md-offset-4 col-sm-offset-3">
+		</div> -->
+		<div class="col-md-4 col-sm-12 col-xs-12 "></div>
+	</div>
+</div>
+<% include ../partials/footer %>

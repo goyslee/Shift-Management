@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<h1>Allocations</h1>
+
+<% foundAllocation.forEach(function(allocation){ %>
+	<% if (allocation.isAllocated == false) { %>
+		<a href="allocations/allocationshow/<%= allocation._id %>"><h1 style="color: #232323;"><%= allocation.time.toDateString() %> </h1></a>
+	<% } %>
+	
+<% }) %>
+<% include ../partials/footer %>

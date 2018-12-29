@@ -1,0 +1,157 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=0.3"> -->
+	
+</head>
+
+
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+            <% if (!currentUser || !currentUser.isAdmin) { %>
+            <% } %>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Earlies<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/colleagues/earlies">All</a></li>
+                  <li><a href="/shift/earlies">On shift</a></li>
+                  <li><a href="/shift/earlies/attended">Attended</a></li>
+                  <li><a href="/colleagues/earlies/team1">Team 1</a></li>
+                  <li><a href="/colleagues/earlies/team2">Team 2</a></li>
+                  <li><a href="/colleagues/earlies/team3">Team 3</a></li>
+                  <li><a href="/colleagues/earlies/team4">Team 4</a></li>
+                  <li><a href="/colleagues/earlies/team5">Team 5</a></li>
+                  <li><a href="/colleagues/earlies/team6">Team 6</a></li>
+                  <li><a href="/colleagues/earlies/team7">Team 7</a></li>
+                  <li><a href="/colleagues/earlies/team8">Team 8</a></li>
+                  <li><a href="/colleagues/pickTrainedEarlies">Pickers</a></li>
+                  <li><a href="/colleagues/chillPickTrainedEarlies">Chill Pickers</a></li> 
+                  <li><a href="/colleagues/loadingTrainedEarlies">Loaders</a></li>
+                  <li><a href="/colleagues/rtTrainedEarlies">Reach Truck Drivers</a></li>
+                  <li><a href="/colleagues/dekitTrainedEarlies">De-Kits</a></li>
+                  <li><a href="/colleagues/marshallingTrainedEarlies">Marshallers</a></li>
+                </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Middles<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/colleagues/middles">All</a></li>
+                  <li><a href="/shift/middles">On shift</a></li>
+                  <li><a href="/shift/middles/attended">Attended</a></li>
+                  <li><a href="/colleagues/middles/team1">Team 1</a></li>
+                  <li><a href="/colleagues/middles/team2">Team 2</a></li>
+                  <li><a href="/colleagues/middles/team3">Team 3</a></li>
+                  <li><a href="/colleagues/middles/team4">Team 4</a></li>
+                  <li><a href="/colleagues/middles/team5">Team 5</a></li>
+                  <li><a href="/colleagues/middles/team6">Team 6</a></li>
+                  <li><a href="/colleagues/middles/team7">Team 7</a></li>
+                  <li><a href="/colleagues/middles/team8">Team 8</a></li>
+                  <li><a href="/colleagues/pickTrainedMiddles">Pickers</a></li>
+                  <li><a href="/colleagues/chillPickTrainedMiddles">Chill Pickers</a></li> 
+                  <li><a href="/colleagues/loadingTrainedMiddles">Loaders</a></li>
+                  <li><a href="/colleagues/rtTrainedMiddles">Reach Truck Drivers</a></li>
+                  <li><a href="/colleagues/dekitTrainedMiddles">De-Kit</a></li>
+                  <li><a href="/colleagues/marshallingTrainedMiddles">Marshallers</a></li>
+                </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nights<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/colleagues/nights">All</a></li>
+                  <li><a href="/shift/nights">On shift</a></li>
+                  <li><a href="/shift/nights/attended">Attended</a></li>
+                  <li><a href="/colleagues/nights/team1">Team 1</a></li>
+                  <li><a href="/colleagues/nights/team2">Team 2</a></li>
+                  <li><a href="/colleagues/nights/team3">Team 3</a></li>
+                  <li><a href="/colleagues/nights/team4">Team 4</a></li>
+                  <li><a href="/colleagues/nights/team5">Team 5</a></li>
+                  <li><a href="/colleagues/nights/team6">Team 6</a></li>
+                  <li><a href="/colleagues/nights/team7">Team 7</a></li>
+                  <li><a href="/colleagues/nights/team8">Team 8</a></li>
+                  <li><a href="/colleagues/pickTrainedNights">Pickers</a></li>
+                  <li><a href="/colleagues/chillPickTrainedNights">Chill Pickers</a></li>                 
+                  <li><a href="/colleagues/loadingTrainedNights">Loaders</a></li>
+                  <li><a href="/colleagues/rtTrainedNights">Reach Truck Drivers</a></li>
+                  <li><a href="/colleagues/dekitTrainedNights">De-Kit</a></li>
+                  <li><a href="/colleagues/marshallingTrainedNights">Marshallers</a></li>
+                </ul>
+                </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Skills<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  
+                  <li><a href="/colleagues">Pickers</a></li>
+                  <li><a href="/colleagues/team1">Chill pick</a></li>
+                  <li><a href="/colleagues/team2">Marshalling</a></li>
+                  <li><a href="/colleagues/team3">Reach Truck drivers</a></li>
+                </ul>
+                </li>
+              
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Allocator<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/allocator">Job allocator</a></li>
+                  <li><a href="/allocator/allocations">Job Sheets</a></li>
+                  <li><a href="/allocator/archived">Archived Job Sheets</a></li>
+                </ul>
+                </li>
+                <% if (currentUser &&currentUser.isAdmin == true) { %>
+                <li><a href="/users">Admin Users</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/colleagues/newcolleague">New colleague</a></li>
+                </ul>
+                </li>
+              <% } %>
+              <li><a href="/help">Help</a></li>
+          </ul>
+        </li>
+       
+        <ul class="nav navbar-nav navbar-right">
+          <% if(!currentUser) { %>
+            <li><a href="/login"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
+            <li><a href="/register"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+          <% } else { %>
+            <li><a href="/user/<%= currentUser.id %>"><i class="fa fa-user" aria-hidden="true"></i><strong class="user"> <%= currentUser.username %></strong></a></li>
+            <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+            
+          <% } %>  
+        </ul>
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+
+<body>
+<!--<h1 style="margin-top: 5%;"></h1>-->

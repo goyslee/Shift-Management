@@ -1,0 +1,194 @@
+<% include ../partials/header %>
+<% include ../partials/header2 %>
+<div class="container smaller">
+    <div class='jumbotron'>
+        <h3 class='well feclec'>
+        <%= colleagueinfo.firstName + " " + colleagueinfo.lastName + " ( " + colleagueinfo.position + " )" + "  " + colleagueinfo.userNumber %> <br>
+        <% if (!colleagueinfo.startDate) { -%>
+        <em>Start Date yet to provide</em>    
+        <% } else { -%>
+        Start Date: <%= colleagueinfo.startDate.toLocaleDateString() %>    
+        <% } -%>
+        
+        </h3>
+
+        <p class='info'>
+            <%= colleagueinfo.colleagueinfo %>
+        </p>
+        <br>
+        <p>
+        <div id="cal">
+         <div id="calendar"></div>
+         <h3>Thanks for this calendar to <a href="https://codepen.io/peanav/pen/ulkof">Paul Navasard</h3></p>
+        </div>   
+        </p>
+        <br>
+        <div class='table-responsive'>
+            <table class='table'>
+                <tbody>
+                    <tr class='tablediv'>
+                        <td class='uppercase'><span class="darker1">Skills:</span>
+                        <% for(var prop in colleagueinfo.roles[0]){ %>
+                        <%if(colleagueinfo.roles[0][prop] === true && colleagueinfo.position != "Warehouse Team Manager" && colleagueinfo.position != "Shift Leader"){ %>
+                        <% if (prop == "chutes") { -%>
+                        <%prop = "CHILL PICK"%>
+                        <% } %>
+
+                        <%= prop + " | " %>
+                        <%}%>
+                        <%}%>
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+                <tr class='tablediv'>
+                    <td class='bruhaha'>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<% if (!currentUser) { %>
+    
+<% } else { %>
+<div class="container">
+<% if (currentUser.isAdmin == true || currentUser.isSuperAdmin) { %>
+<div class="container">
+<div class="col-sm6 col-md-4 col-md-offset-4 col-sm-offset-3">
+    <a class="btn btn-primary btn-block blackgold" href="/colleagues/<%= colleagueinfo._id %>/colleagueedit">Edit</a>
+    <hr class="style-four">
+    <form class="form-group" id="delete" action="/colleagues/<%= colleagueinfo._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-primary btn-block goldblack">Delete</button>
+    </form>
+</div>
+</div>
+<%}%>
+<% } %>
+<% if (!currentUser) { %>
+<% if(colleagueinfo.comments.length < 1){ %>
+<h4>There are no Comments for this Colleague yet.</h4>
+<% } %>
+<hr class="style-four">
+<div class="container">
+    
+        <% colleagueinfo.comments.forEach(function(comment){ %>
+        <div class="jumbotron jjj">
+        <div class="row commentborder">
+            <div class="col-md-12">
+                <strong class=""><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                <span class="pull-right"><%= comment.time.toDateString() + " " + comment.time.toLocaleTimeString() %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                
+            </div>
+        </div>
+        </div>
+        <% }); %>
+    
+</div>
+<% } else if (administrator === currentUser.username) { %>
+
+<% if(colleagueinfo.comments.length < 1){ %>
+<h4>There are no  Comments for this Colleague yet.</h4>
+<% } %>
+<hr class="style-four">
+<div class="container">
+    <div class="pull-left" style="margin-bottom: 2%;">
+        <a class="btn btn-success blackgold fixed" href="/colleagues/<%= colleagueinfo._id %>/comments/new">Add New
+        Comment</a>
+    </div>
+</div>
+<div class="container">
+    
+        <% colleagueinfo.comments.forEach(function(comment){ %>
+        <div class="jumbotron jjj">
+        <div class="row commentborder">
+            <div class="col-md-12">
+                <strong class=""><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                <span class="pull-right"><%= comment.time.toDateString()+ " " + comment.time.toLocaleTimeString()  %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                <a class="btn btn-sm btn-warning blackgold"
+                href="/colleagues/<%= colleagueinfo._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                <form class="pull-right"
+                    action="/colleagues/<%= colleagueinfo._id %>/comments/<%= comment._id %>?_method=DELETE"
+                    method="POST">
+                    <input type="submit" class="btn btn-sm btn-warning goldblack delete-form" value="Delete">
+                </form>
+            </div>
+        </div>
+        </div>
+        <% }); %>
+    
+</div>
+<% } else { %>
+<% if(colleagueinfo.comments.length < 1){ %>
+<h4>There are no  Comments for this Colleague yet.</h4>
+<% } %>
+<hr class="style-four">
+<div class="container">
+    <div class="pull-left" style="margin-bottom: 2%;">
+        <a class="btn btn-success blackgold fixed" href="/colleagues/<%= colleagueinfo._id %>/comments/new">Add New Comment</a>
+    </div>
+</div>
+<div class="container">
+    
+        <% colleagueinfo.comments.forEach(function(comment){ %>
+        <div class="jumbotron jjj">
+        <div class="row commentborder">
+            <div class="col-md-12">
+                <strong class=""><a href="/user/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                <span class="pull-right"><%= comment.time.toDateString() + " " + comment.time.toLocaleTimeString() %></span>
+                <p>
+                    <%= comment.text %>
+                </p>
+                <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                <a class="btn btn-sm btn-warning blackgold"
+                href="/colleagues/<%= colleagueinfo._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                <form class="pull-right"
+                    action="/colleagues/<%= colleagueinfo._id %>/comments/<%= comment._id %>?_method=DELETE"
+                    method="POST">
+                    <input type="submit" class="btn btn-sm btn-warning goldblack delete-form" value="Delete">
+                </form>
+                <% } %>
+            </div>
+        </div>
+        </div>
+        <% }); %>
+    
+</div>
+<% } %>
+<% include ../partials/footer %>

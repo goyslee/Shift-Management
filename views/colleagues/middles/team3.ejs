@@ -1,0 +1,98 @@
+<% include ../../partials/header %>
+<% include ../../partials/header2 %>
+<h1 class="noprint">Middles Team 3</h1>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr><th class="noprint"></th><th class="noprint">Holiday</th><th class="noprint">Abs</th><th>User ID</th><th>Name</th><th>Start Date</th><!-- <th>Organization</th> --><th>Skills</th><!-- <th>Team</th> --><!-- <th>On Shift</th> --></tr>
+    </thead>
+    <tbody>
+        <% tablerow.forEach(function(tablerow){ %> <!--id 1-->
+        
+        <% if (tablerow.isIn == false) { -%>
+        <tr class="off">
+            <td class="noprint">
+                <form class="myform" action="/shift/<%= tablerow.id %>?_method=PUT" method="POST">
+                    <p><input class="check hidden" checked="checked" class="<%= tablerow.firstName + " " + tablerow.lastName %>" type="checkbox" name="colleague[isIn]">
+                </p>
+                <p><input type="submit" class="btn btn-sm blackgold" value="Add IN" title="Click here if you want to add this colleague to ON SHIFT group. By clicking on this button will also returns this colleague from holiday or absence in the database."></p>
+                </form>
+            </td>
+        <% } else { -%>
+            <td class="noprint">
+            <form class="myform" action="/shift/<%= tablerow.id %>?_method=PUT" method="POST">
+                <p><input class="check hidden" class="<%= tablerow.firstName + " " + tablerow.lastName %>" type="checkbox" name="colleague[isIn]">
+            </p>
+            <p><input type="submit" class="btn btn-sm blackgold" value="No Shift" title="Click here if you want to add this colleague to no shift group"></p>
+        </form>
+        </td>
+        <% } -%>
+    <td class="noprint">
+        <form class="myform" action="/shift/<%= tablerow.id %>?_method=PUT" method="POST">
+            <p><input class="check hidden" checked="checked" class="<%= tablerow.firstName + " " + tablerow.lastName %>" type="checkbox" name="colleague[holiday]">
+        </p>
+        <% if (!tablerow.holiday || tablerow.holiday == false) { %>
+        <p><input type="submit" class="btn btn-sm blackgold" value="Hol" title="Add colleague to ON Holiday group."></p>
+        <% } %>
+        <% if (tablerow.holiday && tablerow.holiday == true) { %>
+        <p class= "greenback" title="This colleague is currently on holiday.">On Holiday</p>
+        <% } %>
+        
+    </form>
+</td>
+<td class="noprint">
+    <form class="myform" action="/shift/<%= tablerow.id %>?_method=PUT" method="POST">
+        <p><input class="check hidden" checked="checked" class="<%= tablerow.firstName + " " + tablerow.lastName %>" type="checkbox" name="colleague[absence]">
+    </p>
+    <% if (!tablerow.absence || tablerow.absence == false) { %>
+    <p><input type="submit" class="btn btn-sm blackgold" value="Abs" title="Add this colleague to ON Absence group."></p>
+    <% } %>
+    <% if (tablerow.absence && tablerow.absence == true) { %>
+    <p class= "greenback" title="This colleague is currently on absence.">Asbence</p>
+    <% } %>
+    
+</form>
+</td>
+<td>
+<%= tablerow.userNumber %>
+</td>
+<td class="szlink">
+<div id="<%= tablerow.firstName + " " + tablerow.lastName %>">
+    <a href="/colleagues/<%= tablerow._id %>" title="<%= tablerow.colleagueinfo %>"><%= tablerow.firstName + " " + tablerow.lastName %></a>
+</div>
+</td>
+<td>
+<%= tablerow.startDate.toLocaleDateString() %>
+</td>
+ <!-- tablerow.organization -->
+<td class="uppercase">
+<% for(var prop in tablerow.roles[0]){ %>
+<%if(tablerow.roles[0][prop] === true && tablerow.position != "Warehouse Team Manager" && tablerow.position != "Shift Leader"){ %>
+<% if (prop == "chutes") { -%>
+    <%prop = "CHILL PICK"%>
+<% } %>
+<span class="smallfont"><%= prop + " | " %></span>
+<%}%>
+<%}%>
+
+</td>
+<!-- <td class="nar">
+<%= tablerow.team %>
+</td>
+<% if(tablerow.isIn == true) { %>
+<td class="red">Yes</td>
+<% } else { %>
+<td class="nored">No</td>
+<% } %>
+ --></tr>
+
+<% }); %>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+</div>
+<% include ../../partials/footer %>
