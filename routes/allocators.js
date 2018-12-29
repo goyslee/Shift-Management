@@ -89,7 +89,7 @@ router.get("/allocations", middleware.isLoggedIn, function(req, res) {
     });
 });
 // New allocator Create Route
-router.post("/", middleware.isAdmin, function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     //Create a new Allocator and save it to the database  (DB)
     Allocator.find({}, function(err, foundAllocator) { // ez veglegesiti az elozo shift setupot
         foundAllocator.forEach(function(allocator) {
@@ -324,7 +324,7 @@ router.get("/allocations/allocationshow/:id", middleware.isLoggedIn, function(re
 // DRIVERS ROUTES *
 //*****************
 // DRIVER SHOW ROUTE
-router.get("/:id/drivershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/drivershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("drivers").exec(function(err, foundAllocator) {
         if (err) {
@@ -354,7 +354,7 @@ router.get("/:id/drivershow", middleware.isAdmin, function(req, res) { //order!!
     });
 });
 //DRIVER UPDATE ROUTE Working fully
-router.post("/:id/drivershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/drivershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -406,7 +406,7 @@ router.post("/:id/drivershow", middleware.isAdmin, function(req, res) {
 // PICKERS ROUTES *
 //*****************
 // PICKER SHOW ROUTE
-router.get("/:id/pickershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/pickershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("pickers").exec(function(err, foundAllocator) {
         if (err) {
@@ -436,7 +436,7 @@ router.get("/:id/pickershow", middleware.isAdmin, function(req, res) { //order!!
     });
 });
 //PICKER UPDATE ROUTE Working fully
-router.post("/:id/pickershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/pickershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -486,7 +486,7 @@ router.post("/:id/pickershow", middleware.isAdmin, function(req, res) {
 // CHUTES ROUTES *
 //*****************
 // CHUTE SHOW ROUTE
-router.get("/:id/chuteshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/chuteshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("chutes").exec(function(err, foundAllocator) {
         if (err) {
@@ -516,7 +516,7 @@ router.get("/:id/chuteshow", middleware.isAdmin, function(req, res) { //order!!!
     });
 });
 //CHUTE UPDATE ROUTE Working fully
-router.post("/:id/chuteshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/chuteshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -567,7 +567,7 @@ router.post("/:id/chuteshow", middleware.isAdmin, function(req, res) {
 // REACH TRUCK ROUTES *
 //*****************
 // REACH TRUCK SHOW ROUTE
-router.get("/:id/rtshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/rtshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("rts").exec(function(err, foundAllocator) {
         if (err) {
@@ -597,7 +597,7 @@ router.get("/:id/rtshow", middleware.isAdmin, function(req, res) { //order!!!!!!
     });
 });
 //REACH TRUCK UPDATE ROUTE Working fully
-router.post("/:id/rtshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/rtshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -648,7 +648,7 @@ router.post("/:id/rtshow", middleware.isAdmin, function(req, res) {
 // TIPPERS ROUTES *
 //*****************
 // TIPPER SHOW ROUTE
-router.get("/:id/tippershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/tippershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("tippers").exec(function(err, foundAllocator) {
         if (err) {
@@ -678,7 +678,7 @@ router.get("/:id/tippershow", middleware.isAdmin, function(req, res) { //order!!
     });
 });
 //TIPPER UPDATE ROUTE Working fully
-router.post("/:id/tippershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/tippershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -729,7 +729,7 @@ router.post("/:id/tippershow", middleware.isAdmin, function(req, res) {
 // RUNNERS ROUTES *
 //*****************
 // RUNNER SHOW ROUTE
-router.get("/:id/runnershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/runnershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("runners").exec(function(err, foundAllocator) {
         if (err) {
@@ -759,7 +759,7 @@ router.get("/:id/runnershow", middleware.isAdmin, function(req, res) { //order!!
     });
 });
 //RUNNER UPDATE ROUTE Working fully
-router.post("/:id/runnershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/runnershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -810,7 +810,7 @@ router.post("/:id/runnershow", middleware.isAdmin, function(req, res) {
 // MTS ROUTES *
 //*****************
 // MTS SHOW ROUTE
-router.get("/:id/mtsshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/mtsshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("mtss").exec(function(err, foundAllocator) {
         if (err) {
@@ -840,7 +840,7 @@ router.get("/:id/mtsshow", middleware.isAdmin, function(req, res) { //order!!!!!
     });
 });
 //MTS UPDATE ROUTE Working fully
-router.post("/:id/mtsshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/mtsshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -891,7 +891,7 @@ router.post("/:id/mtsshow", middleware.isAdmin, function(req, res) {
 // RB ROUTES *
 //*****************
 // RB SHOW ROUTE
-router.get("/:id/rbshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/rbshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("rbs").exec(function(err, foundAllocator) {
         if (err) {
@@ -921,7 +921,7 @@ router.get("/:id/rbshow", middleware.isAdmin, function(req, res) { //order!!!!!!
     });
 });
 //RB UPDATE ROUTE Working fully
-router.post("/:id/rbshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/rbshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -972,7 +972,7 @@ router.post("/:id/rbshow", middleware.isAdmin, function(req, res) {
 // CSC ROUTES *
 //*****************
 // CSC SHOW ROUTE
-router.get("/:id/cscshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/cscshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("csc").exec(function(err, foundAllocator) {
         if (err) {
@@ -1002,7 +1002,7 @@ router.get("/:id/cscshow", middleware.isAdmin, function(req, res) { //order!!!!!
     });
 });
 //CSC UPDATE ROUTE Working fully
-router.post("/:id/cscshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/cscshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1053,7 +1053,7 @@ router.post("/:id/cscshow", middleware.isAdmin, function(req, res) {
 // HYGIENE ROUTES *
 //*****************
 // HYGIENE SHOW ROUTE
-router.get("/:id/hygieneshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/hygieneshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("hygiene").exec(function(err, foundAllocator) {
         if (err) {
@@ -1083,7 +1083,7 @@ router.get("/:id/hygieneshow", middleware.isAdmin, function(req, res) { //order!
     });
 });
 //HYGIENE UPDATE ROUTE Working fully
-router.post("/:id/hygieneshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/hygieneshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1134,7 +1134,7 @@ router.post("/:id/hygieneshow", middleware.isAdmin, function(req, res) {
 // BALER ROUTES *
 //*****************
 // BALER SHOW ROUTE
-router.get("/:id/balershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/balershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("balers").exec(function(err, foundAllocator) {
         if (err) {
@@ -1164,7 +1164,7 @@ router.get("/:id/balershow", middleware.isAdmin, function(req, res) { //order!!!
     });
 });
 //BALER UPDATE ROUTE Working fully
-router.post("/:id/balershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/balershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1215,7 +1215,7 @@ router.post("/:id/balershow", middleware.isAdmin, function(req, res) {
 // LOADER ROUTES *
 //*****************
 // LOADER SHOW ROUTE
-router.get("/:id/loadershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/loadershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("loaders").exec(function(err, foundAllocator) {
         if (err) {
@@ -1245,7 +1245,7 @@ router.get("/:id/loadershow", middleware.isAdmin, function(req, res) { //order!!
     });
 });
 //LOADER UPDATE ROUTE Working fully
-router.post("/:id/loadershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/loadershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1296,7 +1296,7 @@ router.post("/:id/loadershow", middleware.isAdmin, function(req, res) {
 // YARD ROUTES *
 //*****************
 // YARD SHOW ROUTE
-router.get("/:id/yardshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/yardshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("yards").exec(function(err, foundAllocator) {
         if (err) {
@@ -1326,7 +1326,7 @@ router.get("/:id/yardshow", middleware.isAdmin, function(req, res) { //order!!!!
     });
 });
 //YARD UPDATE ROUTE Working fully
-router.post("/:id/yardshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/yardshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1377,7 +1377,7 @@ router.post("/:id/yardshow", middleware.isAdmin, function(req, res) {
 // RACKING ROUTES *
 //*****************
 // RACKING SHOW ROUTE
-router.get("/:id/rackingshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/rackingshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("rackings").exec(function(err, foundAllocator) {
         if (err) {
@@ -1407,7 +1407,7 @@ router.get("/:id/rackingshow", middleware.isAdmin, function(req, res) { //order!
     });
 });
 //RACKING UPDATE ROUTE Working fully
-router.post("/:id/rackingshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/rackingshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1458,7 +1458,7 @@ router.post("/:id/rackingshow", middleware.isAdmin, function(req, res) {
 // MANUAL PICK ROUTES *
 //*****************
 // MANUAL PICK SHOW ROUTE
-router.get("/:id/manualpickshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/manualpickshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("manualpicks").exec(function(err, foundAllocator) {
         if (err) {
@@ -1488,7 +1488,7 @@ router.get("/:id/manualpickshow", middleware.isAdmin, function(req, res) { //ord
     });
 });
 //MANUAL PICK UPDATE ROUTE Working fully
-router.post("/:id/manualpickshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/manualpickshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1539,7 +1539,7 @@ router.post("/:id/manualpickshow", middleware.isAdmin, function(req, res) {
 // TRAINING ROUTES *
 //*****************
 // TRAINING SHOW ROUTE
-router.get("/:id/trainingshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/trainingshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("training").exec(function(err, foundAllocator) {
         if (err) {
@@ -1569,7 +1569,7 @@ router.get("/:id/trainingshow", middleware.isAdmin, function(req, res) { //order
     });
 });
 //TRAINING UPDATE ROUTE Working fully
-router.post("/:id/trainingshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/trainingshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1620,7 +1620,7 @@ router.post("/:id/trainingshow", middleware.isAdmin, function(req, res) {
 // UNION ROUTES *
 //*****************
 // UNION SHOW ROUTE
-router.get("/:id/unionshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/unionshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("union").exec(function(err, foundAllocator) {
         if (err) {
@@ -1650,7 +1650,7 @@ router.get("/:id/unionshow", middleware.isAdmin, function(req, res) { //order!!!
     });
 });
 //UNION UPDATE ROUTE Working fully
-router.post("/:id/unionshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/unionshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1701,7 +1701,7 @@ router.post("/:id/unionshow", middleware.isAdmin, function(req, res) {
 // VLS ROUTES *
 //*****************
 // VLS SHOW ROUTE
-router.get("/:id/vlsshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/vlsshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("vlss").exec(function(err, foundAllocator) {
         if (err) {
@@ -1731,7 +1731,7 @@ router.get("/:id/vlsshow", middleware.isAdmin, function(req, res) { //order!!!!!
     });
 });
 //VLS UPDATE ROUTE Working fully
-router.post("/:id/vlsshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/vlsshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1782,7 +1782,7 @@ router.post("/:id/vlsshow", middleware.isAdmin, function(req, res) {
 // PICKMANAGER ROUTES *
 //*****************
 // PICKMANAGER SHOW ROUTE
-router.get("/:id/pickmanagershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/pickmanagershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("pickmanagers").exec(function(err, foundAllocator) {
         if (err) {
@@ -1812,7 +1812,7 @@ router.get("/:id/pickmanagershow", middleware.isAdmin, function(req, res) { //or
     });
 });
 //PICKMANAGER UPDATE ROUTE Working fully
-router.post("/:id/pickmanagershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/pickmanagershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1863,7 +1863,7 @@ router.post("/:id/pickmanagershow", middleware.isAdmin, function(req, res) {
 // CHUTEMANAGER ROUTES *
 //*****************
 // CHUTEMANAGER SHOW ROUTE
-router.get("/:id/chutemanagershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/chutemanagershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("chutemanagers").exec(function(err, foundAllocator) {
         if (err) {
@@ -1893,7 +1893,7 @@ router.get("/:id/chutemanagershow", middleware.isAdmin, function(req, res) { //o
     });
 });
 //CHUTEMANAGER UPDATE ROUTE Working fully
-router.post("/:id/chutemanagershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/chutemanagershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -1944,7 +1944,7 @@ router.post("/:id/chutemanagershow", middleware.isAdmin, function(req, res) {
 // TRUCKMANAGER ROUTES *
 //*****************
 // TRUCKMANAGER SHOW ROUTE
-router.get("/:id/truckmanagershow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/truckmanagershow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("truckmanager").exec(function(err, foundAllocator) {
         if (err) {
@@ -1974,7 +1974,7 @@ router.get("/:id/truckmanagershow", middleware.isAdmin, function(req, res) { //o
     });
 });
 //TRUCKMANAGER UPDATE ROUTE Working fully
-router.post("/:id/truckmanagershow", middleware.isAdmin, function(req, res) {
+router.post("/:id/truckmanagershow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -2025,7 +2025,7 @@ router.post("/:id/truckmanagershow", middleware.isAdmin, function(req, res) {
 // OFFICE ROUTES *
 //*****************
 // OFFICE SHOW ROUTE
-router.get("/:id/officeshow", middleware.isAdmin, function(req, res) { //order!!!!!!!!of routes
+router.get("/:id/officeshow", middleware.isLoggedIn, function(req, res) { //order!!!!!!!!of routes
     //find the allocator with prowided ID
     Allocator.findById(req.params.id).populate("offices").exec(function(err, foundAllocator) {
         if (err) {
@@ -2055,7 +2055,7 @@ router.get("/:id/officeshow", middleware.isAdmin, function(req, res) { //order!!
     });
 });
 //OFFICE UPDATE ROUTE Working fully
-router.post("/:id/officeshow", middleware.isAdmin, function(req, res) {
+router.post("/:id/officeshow", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             console.log(err);
@@ -2103,7 +2103,7 @@ router.post("/:id/officeshow", middleware.isAdmin, function(req, res) {
     res.redirect("back");
 });
 // EDIT ROUTE
-router.get("/:id/allocatorManualEdit", middleware.isAdmin, function(req, res) {
+router.get("/:id/allocatorManualEdit", middleware.isLoggedIn, function(req, res) {
     Allocator.findById(req.params.id, function(err, foundAllocator) {
         if (err) {
             res.redirect("/allocator"); //nem nyultam hozza
@@ -3284,7 +3284,7 @@ router.post("/:id", middleware.isLoggedIn, function(req, res) {
 });
 //
 // DELETE ALLOCATOR ROUTE
-router.delete("/:id", middleware.isAdmin, function(req, res) {
+router.delete("/:id", middleware.isLoggedIn, function(req, res) {
     //destroy blog
     Allocator.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
@@ -3297,7 +3297,7 @@ router.delete("/:id", middleware.isAdmin, function(req, res) {
     //redirect somewhere
 });
 //Driver DESTROY
-router.delete("/:id/drivershow/:driver_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/drivershow/:driver_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3322,7 +3322,7 @@ router.delete("/:id/drivershow/:driver_id", middleware.isAdmin, function(req, re
     });
 });
 //Picker DESTROY
-router.delete("/:id/pickershow/:picker_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/pickershow/:picker_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3347,7 +3347,7 @@ router.delete("/:id/pickershow/:picker_id", middleware.isAdmin, function(req, re
     });
 });
 //Chute DESTROY
-router.delete("/:id/chuteshow/:chute_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/chuteshow/:chute_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3372,7 +3372,7 @@ router.delete("/:id/chuteshow/:chute_id", middleware.isAdmin, function(req, res)
     });
 });
 //Rt DESTROY
-router.delete("/:id/rtshow/:rt_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/rtshow/:rt_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3397,7 +3397,7 @@ router.delete("/:id/rtshow/:rt_id", middleware.isAdmin, function(req, res) {
     });
 });
 //Tipper DESTROY
-router.delete("/:id/tippershow/:tipper_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/tippershow/:tipper_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3422,7 +3422,7 @@ router.delete("/:id/tippershow/:tipper_id", middleware.isAdmin, function(req, re
     });
 });
 //Runner DESTROY
-router.delete("/:id/runnershow/:runner_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/runnershow/:runner_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3447,7 +3447,7 @@ router.delete("/:id/runnershow/:runner_id", middleware.isAdmin, function(req, re
     });
 });
 //Mts DESTROY
-router.delete("/:id/mtsshow/:mts_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/mtsshow/:mts_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3472,7 +3472,7 @@ router.delete("/:id/mtsshow/:mts_id", middleware.isAdmin, function(req, res) {
     });
 });
 //Rb DESTROY
-router.delete("/:id/rbshow/:rb_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/rbshow/:rb_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3498,7 +3498,7 @@ router.delete("/:id/rbshow/:rb_id", middleware.isAdmin, function(req, res) {
     });
 });
 //Csc DESTROY
-router.delete("/:id/cscshow/:csc_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/cscshow/:csc_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3523,7 +3523,7 @@ router.delete("/:id/cscshow/:csc_id", middleware.isAdmin, function(req, res) {
     });
 });
 //Hygiene DESTROY
-router.delete("/:id/hygieneshow/:hygiene_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/hygieneshow/:hygiene_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3548,7 +3548,7 @@ router.delete("/:id/hygieneshow/:hygiene_id", middleware.isAdmin, function(req, 
     });
 });
 //Baler DESTROY
-router.delete("/:id/balershow/:baler_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/balershow/:baler_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3573,7 +3573,7 @@ router.delete("/:id/balershow/:baler_id", middleware.isAdmin, function(req, res)
     });
 });
 //Loader DESTROY
-router.delete("/:id/loadershow/:loader_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/loadershow/:loader_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3598,7 +3598,7 @@ router.delete("/:id/loadershow/:loader_id", middleware.isAdmin, function(req, re
     });
 });
 //Yard DESTROY
-router.delete("/:id/yardshow/:yard_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/yardshow/:yard_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3623,7 +3623,7 @@ router.delete("/:id/yardshow/:yard_id", middleware.isAdmin, function(req, res) {
     });
 });
 //Racking DESTROY
-router.delete("/:id/rackingshow/:racking_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/rackingshow/:racking_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3648,7 +3648,7 @@ router.delete("/:id/rackingshow/:racking_id", middleware.isAdmin, function(req, 
     });
 });
 //Manualpick DESTROY
-router.delete("/:id/manualpickshow/:manualpick_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/manualpickshow/:manualpick_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3673,7 +3673,7 @@ router.delete("/:id/manualpickshow/:manualpick_id", middleware.isAdmin, function
     });
 });
 //Training DESTROY
-router.delete("/:id/trainingshow/:training_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/trainingshow/:training_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3698,7 +3698,7 @@ router.delete("/:id/trainingshow/:training_id", middleware.isAdmin, function(req
     });
 });
 //Union DESTROY
-router.delete("/:id/unionshow/:union_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/unionshow/:union_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3723,7 +3723,7 @@ router.delete("/:id/unionshow/:union_id", middleware.isAdmin, function(req, res)
     });
 });
 //Vls DESTROY
-router.delete("/:id/vlsshow/:vls_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/vlsshow/:vls_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3748,7 +3748,7 @@ router.delete("/:id/vlsshow/:vls_id", middleware.isAdmin, function(req, res) {
     });
 });
 //Pickmanager DESTROY
-router.delete("/:id/pickmanagershow/:pickmanager_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/pickmanagershow/:pickmanager_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3773,7 +3773,7 @@ router.delete("/:id/pickmanagershow/:pickmanager_id", middleware.isAdmin, functi
     });
 });
 //Chutemanager DESTROY
-router.delete("/:id/chutemanagershow/:chutemanager_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/chutemanagershow/:chutemanager_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3798,7 +3798,7 @@ router.delete("/:id/chutemanagershow/:chutemanager_id", middleware.isAdmin, func
     });
 });
 //Truckmanager DESTROY
-router.delete("/:id/truckmanagershow/:truckmanager_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/truckmanagershow/:truckmanager_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
@@ -3823,7 +3823,7 @@ router.delete("/:id/truckmanagershow/:truckmanager_id", middleware.isAdmin, func
     });
 });
 //Office DESTROY
-router.delete("/:id/officeshow/:office_id", middleware.isAdmin, function(req, res) {
+router.delete("/:id/officeshow/:office_id", middleware.isLoggedIn, function(req, res) {
     //fyndByIdAndRemove
     Colleague.find({}, function(err, foundColleague) {
         if (err) {
