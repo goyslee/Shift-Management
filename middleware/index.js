@@ -29,7 +29,7 @@ middlewareObj.loggedInAlready = function(req, res, next) {
 
 middlewareObj.isAdmin = function(req, res, next) {
   if (req.user.isAdmin == true) {
-    next();
+    return next();
   } else {
     req.flash("error", "You do not have permission for this action! Use admin and superadmin log in. User: tjoe, Password: tjoe ");
     res.redirect('back');
