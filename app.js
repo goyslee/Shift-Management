@@ -24,10 +24,10 @@ var   shiftRoutes           = require("./routes/shift");
 var   allocatorsRoutes      = require("./routes/allocators");
 
 var adminUser = "zkindla";
-// var options = {useMongoClient: true
-//                 }
+var options = {useMongoClient: true
+                }
 mongoose.Promise = global.Promise;
-mongoose.connect(lates);
+mongoose.connect(lates, options);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
