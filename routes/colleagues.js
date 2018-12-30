@@ -895,6 +895,8 @@ router.post("/", middleware.isAdmin, function(req, res) {
             newlyCreated.save();
             newlyCreated.holiday = false;
             newlyCreated.isAllocated = false;
+            newlyCreated.roles[0].hygiene = true;
+            newlyCreated.rating[0].hygiene = 1;
             if (!req.body.colleague.startDate) {
                 newlyCreated.startDate = Date.now();
             }
@@ -977,7 +979,8 @@ router.put("/:id", middleware.isAdmin, function(req, res) {
             updatedColleague.baseHours = 8;
             updatedColleague.actualHours = req.body.actualHours;
             updatedColleague.fullName = updatedColleague.firstName + " " + updatedColleague.lastName;
-            
+            updatedColleague.roles[0].hygiene = true;
+            updatedColleague.rating[0].hygiene = 1
              if (updatedColleague.roles[0].tip == true) {
                 updatedColleague.roles[0].runner = true;
             } else {
