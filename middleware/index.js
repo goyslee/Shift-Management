@@ -24,7 +24,7 @@ middlewareObj.loggedInAlready = function(req, res, next) {
 };
 middlewareObj.isAdmin = function(req, res, next) {
     if (req.user.isAdmin == true) {
-        return next();
+        next();
     } else {
         req.flash("error", "You do not have permission for this action! Use admin and superadmin log in. User: tjoe, Password: tjoe ");
         res.redirect('back');
@@ -42,7 +42,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) { //AUTHORIZATION
                 if (foundComment.author.id.equals(req.user._id)) {
                     next();
                 } else {
-                    if (req.isAuthenticated() && req.user.isAdmin == true) {
+                    if (req.isAuthenticated() && req.user.username === adminUser) {
                         return next();
                     }
                     res.redirect("back");
