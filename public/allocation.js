@@ -45,7 +45,14 @@ $("check").on('change', function() {
     
   }
   
- 
+ });
+
+$("check").is(':checked', function(){
+              $("check").attr('value', 'true');
+          });
+
+$("form").submit(function() {
+    $("input").removeAttr("disabled");
 });
 
 function check() {
