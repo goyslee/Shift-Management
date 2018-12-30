@@ -10,6 +10,9 @@ var express = require("express"), // npm install express ejs method-override bod
     Colleague = require("./models/colleague"),
     User = require("./models/user"); //v6
 // seedDB             = require("./seeds");
+var   administrator = process.env.ADMINISTRATOR;
+var   adminUser = process.env.ADMINUSER;
+
 var colleaguecommentsRoutes = require("./routes/colleaguecomments");
 var colleaguesRoutes = require("./routes/colleagues");
 var indexRoutes = require("./routes/index");
