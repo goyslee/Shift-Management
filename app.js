@@ -24,7 +24,7 @@ var adminUser = "zkindla";
 var options = {useMongoClient: true
                 }
 mongoose.Promise = global.Promise;
-mongoose.connect(DATABASEURL, options);
+mongoose.connect(process.env.DATABASEURL, options);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
