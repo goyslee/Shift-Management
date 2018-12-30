@@ -18,7 +18,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/" ,middleware.checkCommentOwnership, function(req, res){
     //lookup colleague using ID
     Colleague.findById(req.params.id, function(err, colleague){
         if(err){

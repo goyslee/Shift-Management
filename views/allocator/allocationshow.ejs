@@ -1,8 +1,6 @@
 <% include ../partials/header %>
 <% include ../partials/header2 %>
 <div class="container">
-	
-	
 	<p><%= allocatorinfo.pickTarget +' ' %> to Pick. <%= allocatorinfo.tipTarget +' ' %> to Tip.</p>
 	<h1 class="myh"><%= allocatorinfo.time.toDateString() %>(Currently no middles or nights)</h1>
 </div>
@@ -14,7 +12,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/pickmanagershow"><span class="noprint">Pick Manager:</span></a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundPickmanager.forEach(function(foundPickmanager){ %>
@@ -29,7 +26,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/pickershow">Pick:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundPicker.forEach(function(foundPicker){ %>
@@ -46,7 +42,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/officeshow">Office:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundOffice.forEach(function(foundOffice){ %>
@@ -63,13 +58,11 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/manualpickshow">Checking:</a>
 		<% } %>
-		
 		</h3>
 		<% foundManualpick.forEach(function(foundManualpick){ %>
 		<% if (foundManualpick.author.id.equals(allocatorinfo.id)) { %>
 		<p><a href="/colleagues/<%= foundManualpick.colleagueId %>" title=""><%= foundManualpick.text %></a></p>
 		<% } %>
-		
 		<% }); %>
 		<% } %>
 	</div>
@@ -80,7 +73,6 @@
 		<% } else { -%>
 		<a href="/allocator/<%= allocatorinfo.id %>/chutemanagershow"><span class="noprint">Chill Manager:</span></a>
 		<% } -%>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundChutemanager.forEach(function(foundChutemanager){ %>
@@ -95,7 +87,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/chuteshow">Chill Pick:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundChute.forEach(function(foundChute){ %>
@@ -112,9 +103,7 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/truckmanagershow"><span class="noprint">G. In Manager:</a>
 		<% } %>
-		
 		</h3>
-		
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundTruckmanager.forEach(function(foundTruckmanager){ %>
 		<% if (foundTruckmanager.author.id.equals(allocatorinfo.id) && foundTruckmanager.colleagueId === foundColleague.id) { %>
@@ -122,14 +111,12 @@
 		<% } %>
 		<% }); %>
 		<% }); %>
-		
 		<h3>
 		<% if (allocatorinfo.isAllocated == true) { %>
 		Reach Truck:
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/drivershow">Reach Truck:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundDriver.forEach(function(foundDriver){ %>
@@ -144,7 +131,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/rtshow">Scissor lift:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundRt.forEach(function(foundRt){ %>
@@ -159,7 +145,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/runnershow">Run:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundRunner.forEach(function(foundRunner){ %>
@@ -174,7 +159,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/balershow">Baler:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundBaler.forEach(function(foundBaler){ %>
@@ -189,7 +173,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/unionshow">Union:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundUnion.forEach(function(foundUnion){ %>
@@ -199,8 +182,6 @@
 		<% }); %>
 		<% }); %>
 	</div>
-	
-	
 	<div class="tip">
 		<h3>
 		<% if (allocatorinfo.isAllocated == true) { %>
@@ -208,7 +189,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/tippershow">Tip:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundTipper.forEach(function(foundTipper){ %>
@@ -223,7 +203,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/yardshow">Yard:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundYard.forEach(function(foundYard){ %>
@@ -238,7 +217,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/trainingshow">Training:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundTraining.forEach(function(foundTraining){ %>
@@ -255,7 +233,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/loadershow">Loading:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundLoader.forEach(function(foundLoader){ %>
@@ -270,7 +247,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/rackingshow">Racking:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundRacking.forEach(function(foundRacking){ %>
@@ -287,7 +263,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/mtsshow">De-kit:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundMts.forEach(function(foundMts){ %>
@@ -313,14 +288,12 @@
 		<%# }); %>
 		<%# }); %>
 		<%# modosit %>
-		
 		<h3>
 		<% if (allocatorinfo.isAllocated == true) { %>
 		Inbound clerk:
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/cscshow">Inbound clerk:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundCsc.forEach(function(foundCsc){ %>
@@ -335,7 +308,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/vlsshow">Outbound clerk:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundVls.forEach(function(foundVls){ %>
@@ -350,7 +322,6 @@
 		<% } else { %>
 		<a href="/allocator/<%= allocatorinfo.id %>/hygieneshow">Hygiene:</a>
 		<% } %>
-		
 		</h3>
 		<%  foundColleague.forEach(function(foundColleague){ %>
 		<% foundHygiene.forEach(function(foundHygiene){ %>

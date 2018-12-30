@@ -1,83 +1,63 @@
 <% include ../partials/header %>
 <% include ../partials/header2 %>
 <div class="container">
-<p><h1>Shift management user guide.</h1>
-
-
-The reason I developed this appliction is make my job easier in the role of Warehouse team manager. I always use the best of my knowledge in order to become as successful as possible.
-Basically it is an aid to manage a shift in a warehouse.
-
-I do not want to bore anybody with any useless toughts so lets see what Shift Management application can do.
-<br>
-<h4><strong>MENUS</strong></h4>
-<br>
-
-There is a horizontal nav bar, with different choises on the top of the pages. This allows you to redirect to different pages (sections) within the system.
-	<br>
-	<strong>- Home</strong> – Obviusly, it will take you to the home page :)
-	<br>
-
-	<strong>- Earlies, Middles, Nights</strong> – In most warehouses the operation is 24/7, this requires to run 3 shifts. Theese sections are pretty much the same within this application, all got the same functionallity, giving and overview of your colleagues in the database by shifts. The allocator (see later) will pull all colleagues accross from all shift, currently working on separate the 3 shifts.
-
-<h4><strong>Dropdowns within these sections:</strong></h4>
-
-<strong>All</strong>
-
-	– Shows all the colleagues in the database on this shift. The colleague’s informations appear in a table. Here 3 buttons applied to each colleagues.
-	<br>
- <div class="container">
-<strong>Add In</strong> (by clicking on it will add colleagues on shift and a new button appears instead ”<em><strong>No Shift</strong></em>”. Click on <strong>No shift</strong> if you want to remove colleague from shift.)
-<br>
-<strong>Absence</strong> (by clicking on it you will register colleague as “<em><strong>Absent</strong></em>” in the system. Clicking on <strong>Add Shift</strong> will unregister.)
-<br>
-<strong>Holiday</strong> (by clicking on it you will register colleague as “<em><strong>Holiday</strong></em>” in the system”. Clicking on <strong>Add Shift</strong> will unregister.)
-<br>
-<br>
-Other than theese 3 buttons, you will see the necessary information about each colleagues, such as Name or skills, etc.
-</div>
-
-
-<br>
-<strong>On Shift</strong>	
-
-Shows colleagues added on shift. Here is a button assigned to each colleague “<em><strong>Attended</strong></em>”. Very useful when doing cheks right before the shift and ticking colleagues are attended.
-<br>
-<strong>Attended</strong>
-
-Shows colleagues marked Attended. Helps look up colleagues attended on shift and colleagues are absent.
-<br>
-<strong>Earlies, Middles, Nights</strong> - have other menus like Team 1 – 8, shows only colleagues in certain team and also have menus to show colleagues with certain skills, but not all skills.
-
-<br>
-<strong>Allocator</strong>
-
-This section is the main goal for this application. When you click on Job Allocator submenu you will be redirected to the Job sheet creation step 1. You need to give your targets to the system such as picking, loading, and receiving targets. Once you clicked “<strong><em>Create blank job sheet</em></strong>” button, it will save a new blank job sheet for your shift.
-
-You will find the blank sheet under <strong>Job sheets submenu</strong>. You have to allocate managers manually by clicking on the section you desire to edit, and add them from drop down menu (Only managers will show up in the dropdown).
-<br>
-<br>
-
-You can also allocate or remove colleagues for tasks manually, or just click on <strong>automatic job allocation</strong> button. By doing so the system will run a rutin and allocates colleagues randomly to the tasks. Only those colleagues with certain skills can be allocated on certain tasks, for instance you will not be able to see those colleagues in the dropdown menu are not trained for loading if you are in loading secion! If you not happy with the allocation, you can still edit it adding and removing colleagues manually. One colleague can be allocated on one task at the time. Once you have created a new blank sheet, the previous sheet will become archived, disabling any more edit functions on the sheet in the future. You can delete any job sheet at any time by clicking on delete button, when in sheet. 
-<br>
-<br>
-<strong>Again:</strong> The allocator will pull all colleagues accross from all shift are added on. Currently working on separate the 3 shifts.
-<br>
-<br>
-<strong class="darker1">Warning!</strong> There is no request for confirmation when clicking buttons yet, pelase be considerate when you do so. 
-<br>
-<br>
-<strong>Admin</strong>
-
-
-There is only one submenu here “<strong><em>New Colleague</em></strong>”. It is pretty much obvious but some part needs to be explained. Usual inputs and some dropdowns. To set colleague skills you just need to tick the checkbox of the relevant skill. It is very important you set the rating, otherwise the allocator  will not work as expected. Rating range is 1-10. It is for you to determine how much you prefer the colleague on the task.
-<br>
-<br>
-You can also edit colleagues if you click on names then click on edit button in the colleague view.
-<br>
-<br>
-Have fun!
-
-
-</p>
+	<p><h1>Shift management user guide.</h1>
+		The reason I developed this appliction is make my job easier in the role of Warehouse team manager. I always use the best of my knowledge in order to become as successful as possible.
+		Basically it is an aid to manage a shift in a warehouse.
+		I do not want to bore anybody with any useless toughts so lets see what Shift Management application can do.
+		<br>
+		<h4><strong>MENUS</strong></h4>
+		<br>
+		There is a horizontal nav bar, with different choises on the top of the pages. This allows you to redirect to different pages (sections) within the system.
+		<br>
+		<strong>- Home</strong> – Obviusly, it will take you to the home page :)
+		<br>
+		<strong>- Earlies, Middles, Nights</strong> – In most warehouses the operation is 24/7, this requires to run 3 shifts. Theese sections are pretty much the same within this application, all got the same functionallity, giving and overview of your colleagues in the database by shifts. The allocator (see later) will pull all colleagues accross from all shift, currently working on separate the 3 shifts.
+		<h4><strong>Dropdowns within these sections:</strong></h4>
+		<strong>All</strong>
+		– Shows all the colleagues in the database on this shift. The colleague’s informations appear in a table. Here 3 buttons applied to each colleagues.
+		<br>
+		<div class="container">
+			<strong>Add In</strong> (by clicking on it will add colleagues on shift and a new button appears instead ”<em><strong>No Shift</strong></em>”. Click on <strong>No shift</strong> if you want to remove colleague from shift.)
+			<br>
+			<strong>Absence</strong> (by clicking on it you will register colleague as “<em><strong>Absent</strong></em>” in the system. Clicking on <strong>Add Shift</strong> will unregister.)
+			<br>
+			<strong>Holiday</strong> (by clicking on it you will register colleague as “<em><strong>Holiday</strong></em>” in the system”. Clicking on <strong>Add Shift</strong> will unregister.)
+			<br>
+			<br>
+			Other than theese 3 buttons, you will see the necessary information about each colleagues, such as Name or skills, etc.
+		</div>
+		<br>
+		<strong>On Shift</strong>
+		Shows colleagues added on shift. Here is a button assigned to each colleague “<em><strong>Attended</strong></em>”. Very useful when doing cheks right before the shift and ticking colleagues are attended.
+		<br>
+		<strong>Attended</strong>
+		Shows colleagues marked Attended. Helps look up colleagues attended on shift and colleagues are absent.
+		<br>
+		<strong>Earlies, Middles, Nights</strong> - have other menus like Team 1 – 8, shows only colleagues in certain team and also have menus to show colleagues with certain skills, but not all skills.
+		<br>
+		<strong>Allocator</strong>
+		This section is the main goal for this application. When you click on Job Allocator submenu you will be redirected to the Job sheet creation step 1. You need to give your targets to the system such as picking, loading, and receiving targets. Once you clicked “<strong><em>Create blank job sheet</em></strong>” button, it will save a new blank job sheet for your shift.
+		You will find the blank sheet under <strong>Job sheets submenu</strong>. You have to allocate managers manually by clicking on the section you desire to edit, and add them from drop down menu (Only managers will show up in the dropdown).
+		<br>
+		<br>
+		You can also allocate or remove colleagues for tasks manually, or just click on <strong>automatic job allocation</strong> button. By doing so the system will run a rutin and allocates colleagues randomly to the tasks. Only those colleagues with certain skills can be allocated on certain tasks, for instance you will not be able to see those colleagues in the dropdown menu are not trained for loading if you are in loading secion! If you not happy with the allocation, you can still edit it adding and removing colleagues manually. One colleague can be allocated on one task at the time. Once you have created a new blank sheet, the previous sheet will become archived, disabling any more edit functions on the sheet in the future. You can delete any job sheet at any time by clicking on delete button, when in sheet.
+		<br>
+		<br>
+		<strong>Again:</strong> The allocator will pull all colleagues accross from all shift are added on. Currently working on separate the 3 shifts.
+		<br>
+		<br>
+		<strong class="darker1">Warning!</strong> There is no request for confirmation when clicking buttons yet, pelase be considerate when you do so.
+		<br>
+		<br>
+		<strong>Admin</strong>
+		There is only one submenu here “<strong><em>New Colleague</em></strong>”. It is pretty much obvious but some part needs to be explained. Usual inputs and some dropdowns. To set colleague skills you just need to tick the checkbox of the relevant skill. It is very important you set the rating, otherwise the allocator  will not work as expected. Rating range is 1-10. It is for you to determine how much you prefer the colleague on the task.
+		<br>
+		<br>
+		You can also edit colleagues if you click on names then click on edit button in the colleague view.
+		<br>
+		<br>
+		Have fun!
+	</p>
 </div>
 <% include ../partials/footer %>

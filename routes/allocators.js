@@ -3847,7 +3847,6 @@ router.delete("/:id/officeshow/:office_id", middleware.isAdmin, function(req, re
         }
     });
 });
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }

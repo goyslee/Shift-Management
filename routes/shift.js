@@ -35,7 +35,6 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
             }
         }); //v15
     } else { //v15
-
         //Get all colleagues, from DB
         Colleague.find({}, null, {
             sort: {
@@ -44,27 +43,24 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
         }, function(err, tablerow) {
             if (err) {
                 console.log(err);
-            } 
-            Colleague.find({}, null, {
-            sort: {
-                userNumber: 1
             }
-        }, function(err, tablerow) {
-
+            Colleague.find({}, null, {
+                sort: {
+                    userNumber: 1
+                }
+            }, function(err, tablerow) {
                 tablerow.forEach(function(coll) {
                     if (coll.isIn == true && coll.team === 1 || coll.isIn == true && coll.team === 2 || coll.isIn == true && coll.team === 3 || coll.isIn == true && coll.team === 4 || coll.isIn == true && coll.team === 5 || coll.isIn == true && coll.team === 6 || coll.isIn == true && coll.team === 7 || coll.isIn == true && coll.team === 8) {
                         collInNum++;
                     }
-
                     if (coll.isIn == true && coll.team === 10) {
                         agentcollInNum++;
                     }
                     if (coll.isIn == true && coll.team === 9) {
                         hygieneNum++;
                     }
-
                 });
-                 res.render("shift/shift", {
+                res.render("shift/shift", {
                     hygieneNum: hygieneNum,
                     agentcollInNum: agentcollInNum,
                     collInNum: collInNum,
@@ -72,12 +68,9 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
                     noMatch: noMatch
                 });
             });
-
-
         });
     } //v15
 });
-
 // Earlies shift
 router.get("/earlies", middleware.isLoggedIn, function(req, res) {
     var noMatch = ""; //v15
@@ -88,7 +81,8 @@ router.get("/earlies", middleware.isLoggedIn, function(req, res) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi'); //v15
         //Get all colleagues, from DB //v15
         Colleague.find({
-            lastName: regex, shift: "Earlies"
+            lastName: regex,
+            shift: "Earlies"
         }, null, {
             sort: {
                 userNumber: 1
@@ -110,36 +104,36 @@ router.get("/earlies", middleware.isLoggedIn, function(req, res) {
             }
         }); //v15
     } else { //v15
-
         //Get all colleagues, from DB
-        Colleague.find({shift: "Earlies"}, null, {
+        Colleague.find({
+            shift: "Earlies"
+        }, null, {
             sort: {
                 userNumber: 1
             }
         }, function(err, tablerow) {
             if (err) {
                 console.log(err);
-            } 
-            Colleague.find({shift: "Earlies"}, null, {
-            sort: {
-                userNumber: 1
             }
-        }, function(err, tablerow) {
-
+            Colleague.find({
+                shift: "Earlies"
+            }, null, {
+                sort: {
+                    userNumber: 1
+                }
+            }, function(err, tablerow) {
                 tablerow.forEach(function(coll) {
                     if (coll.isIn == true && coll.shift === "Earlies") {
                         collInNum++;
                     }
-
                     if (coll.isIn == true && coll.team === 10) {
                         agentcollInNum++;
                     }
                     if (coll.isIn == true && coll.team === 9) {
                         hygieneNum++;
                     }
-
                 });
-                 res.render("shift/shift", {
+                res.render("shift/shift", {
                     hygieneNum: hygieneNum,
                     agentcollInNum: agentcollInNum,
                     collInNum: collInNum,
@@ -147,12 +141,9 @@ router.get("/earlies", middleware.isLoggedIn, function(req, res) {
                     noMatch: noMatch
                 });
             });
-
-
         });
     } //v15
 });
-
 // Middles shift
 router.get("/middles", middleware.isLoggedIn, function(req, res) {
     var noMatch = ""; //v15
@@ -163,7 +154,8 @@ router.get("/middles", middleware.isLoggedIn, function(req, res) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi'); //v15
         //Get all colleagues, from DB //v15
         Colleague.find({
-            lastName: regex, shift: "Middles"
+            lastName: regex,
+            shift: "Middles"
         }, null, {
             sort: {
                 userNumber: 1
@@ -185,36 +177,36 @@ router.get("/middles", middleware.isLoggedIn, function(req, res) {
             }
         }); //v15
     } else { //v15
-
         //Get all colleagues, from DB
-        Colleague.find({shift: "Middles"}, null, {
+        Colleague.find({
+            shift: "Middles"
+        }, null, {
             sort: {
                 userNumber: 1
             }
         }, function(err, tablerow) {
             if (err) {
                 console.log(err);
-            } 
-            Colleague.find({shift: "Middles"}, null, {
-            sort: {
-                userNumber: 1
             }
-        }, function(err, tablerow) {
-
+            Colleague.find({
+                shift: "Middles"
+            }, null, {
+                sort: {
+                    userNumber: 1
+                }
+            }, function(err, tablerow) {
                 tablerow.forEach(function(coll) {
                     if (coll.isIn == true && coll.shift === "Middles") {
                         collInNum++;
                     }
-
                     if (coll.isIn == true && coll.team === 10) {
                         agentcollInNum++;
                     }
                     if (coll.isIn == true && coll.team === 9) {
                         hygieneNum++;
                     }
-
                 });
-                 res.render("shift/shift", {
+                res.render("shift/shift", {
                     hygieneNum: hygieneNum,
                     agentcollInNum: agentcollInNum,
                     collInNum: collInNum,
@@ -222,12 +214,9 @@ router.get("/middles", middleware.isLoggedIn, function(req, res) {
                     noMatch: noMatch
                 });
             });
-
-
         });
     } //v15
 });
-
 // Earlies shift
 router.get("/nights", middleware.isLoggedIn, function(req, res) {
     var noMatch = ""; //v15
@@ -238,7 +227,8 @@ router.get("/nights", middleware.isLoggedIn, function(req, res) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi'); //v15
         //Get all colleagues, from DB //v15
         Colleague.find({
-            lastName: regex, shift: "Nights"
+            lastName: regex,
+            shift: "Nights"
         }, null, {
             sort: {
                 userNumber: 1
@@ -260,36 +250,36 @@ router.get("/nights", middleware.isLoggedIn, function(req, res) {
             }
         }); //v15
     } else { //v15
-
         //Get all colleagues, from DB
-        Colleague.find({shift: "Nights"}, null, {
+        Colleague.find({
+            shift: "Nights"
+        }, null, {
             sort: {
                 userNumber: 1
             }
         }, function(err, tablerow) {
             if (err) {
                 console.log(err);
-            } 
-            Colleague.find({shift: "Nights"}, null, {
-            sort: {
-                userNumber: 1
             }
-        }, function(err, tablerow) {
-
+            Colleague.find({
+                shift: "Nights"
+            }, null, {
+                sort: {
+                    userNumber: 1
+                }
+            }, function(err, tablerow) {
                 tablerow.forEach(function(coll) {
                     if (coll.isIn == true && coll.shift === "Nights") {
                         collInNum++;
                     }
-
                     if (coll.isIn == true && coll.team === 10) {
                         agentcollInNum++;
                     }
                     if (coll.isIn == true && coll.team === 9) {
                         hygieneNum++;
                     }
-
                 });
-                 res.render("shift/shift", {
+                res.render("shift/shift", {
                     hygieneNum: hygieneNum,
                     agentcollInNum: agentcollInNum,
                     collInNum: collInNum,
@@ -297,112 +287,114 @@ router.get("/nights", middleware.isLoggedIn, function(req, res) {
                     noMatch: noMatch
                 });
             });
-
-
         });
     } //v15
 });
-
 // Earlies attended
 router.get("/earlies/attended", middleware.isLoggedIn, function(req, res) {
-    Colleague.find({attended: true, shift: "Earlies"}, function(err, tablerow){
-        if(err) {
+    Colleague.find({
+        attended: true,
+        shift: "Earlies"
+    }, function(err, tablerow) {
+        if (err) {
             console.log(err);
         } else {
             var noMatch = "";
             var collInNum = 0;
             var agentcollInNum = 0;
             var hygieneNum = 0;
-          tablerow.forEach(function(coll) {
-                    if (coll.attended == true && coll.shift === "Earlies") {
-                        collInNum++;
-                    }
-
-                    if (coll.attended == true && coll.team === 10) {
-                        agentcollInNum++;
-                    }
-                    if (coll.attended == true && coll.team === 9) {
-                        hygieneNum++;
-                    }
-
-                });  
+            tablerow.forEach(function(coll) {
+                if (coll.attended == true && coll.shift === "Earlies") {
+                    collInNum++;
+                }
+                if (coll.attended == true && coll.team === 10) {
+                    agentcollInNum++;
+                }
+                if (coll.attended == true && coll.team === 9) {
+                    hygieneNum++;
+                }
+            });
         }
-        res.render("shift/attended", {tablerow: tablerow, 
-                                             collInNum: collInNum, 
-                                             agentcollInNum: agentcollInNum, 
-                                             hygieneNum: hygieneNum,
-                                             noMatch: noMatch,  
-                                             attendance: "Attended colleagues:"});
+        res.render("shift/attended", {
+            tablerow: tablerow,
+            collInNum: collInNum,
+            agentcollInNum: agentcollInNum,
+            hygieneNum: hygieneNum,
+            noMatch: noMatch,
+            attendance: "Attended colleagues:"
+        });
     });
 });
-
 // Middles attended
 router.get("/middles/attended", middleware.isLoggedIn, function(req, res) {
-    Colleague.find({attended: true, shift: "Middles"}, function(err, tablerow){
-        if(err) {
+    Colleague.find({
+        attended: true,
+        shift: "Middles"
+    }, function(err, tablerow) {
+        if (err) {
             console.log(err);
         } else {
             var noMatch = "";
             var collInNum = 0;
             var agentcollInNum = 0;
             var hygieneNum = 0;
-          tablerow.forEach(function(coll) {
-                    if (coll.attended == true && coll.shift === "Middles") {
-                        collInNum++;
-                    }
-
-                    if (coll.attended == true && coll.team === 10) {
-                        agentcollInNum++;
-                    }
-                    if (coll.attended == true && coll.team === 9) {
-                        hygieneNum++;
-                    }
-
-                });  
+            tablerow.forEach(function(coll) {
+                if (coll.attended == true && coll.shift === "Middles") {
+                    collInNum++;
+                }
+                if (coll.attended == true && coll.team === 10) {
+                    agentcollInNum++;
+                }
+                if (coll.attended == true && coll.team === 9) {
+                    hygieneNum++;
+                }
+            });
         }
-        res.render("shift/attended", {tablerow: tablerow, 
-                                             collInNum: collInNum, 
-                                             agentcollInNum: agentcollInNum, 
-                                             hygieneNum: hygieneNum,
-                                             noMatch: noMatch,  
-                                             attendance: "Attended colleagues:"});
+        res.render("shift/attended", {
+            tablerow: tablerow,
+            collInNum: collInNum,
+            agentcollInNum: agentcollInNum,
+            hygieneNum: hygieneNum,
+            noMatch: noMatch,
+            attendance: "Attended colleagues:"
+        });
     });
 });
-
 // Nights attended
 router.get("/nights/attended", middleware.isLoggedIn, function(req, res) {
-    Colleague.find({attended: true, shift: "Nights"}, function(err, tablerow){
-        if(err) {
+    Colleague.find({
+        attended: true,
+        shift: "Nights"
+    }, function(err, tablerow) {
+        if (err) {
             console.log(err);
         } else {
             var noMatch = "";
             var collInNum = 0;
             var agentcollInNum = 0;
             var hygieneNum = 0;
-          tablerow.forEach(function(coll) {
-                    if (coll.attended == true && coll.shift === "Nights") {
-                        collInNum++;
-                    }
-
-                    if (coll.attended == true && coll.team === 10) {
-                        agentcollInNum++;
-                    }
-                    if (coll.attended == true && coll.team === 9) {
-                        hygieneNum++;
-                    }
-
-                });  
+            tablerow.forEach(function(coll) {
+                if (coll.attended == true && coll.shift === "Nights") {
+                    collInNum++;
+                }
+                if (coll.attended == true && coll.team === 10) {
+                    agentcollInNum++;
+                }
+                if (coll.attended == true && coll.team === 9) {
+                    hygieneNum++;
+                }
+            });
         }
-        res.render("shift/attended", {tablerow: tablerow, 
-                                             collInNum: collInNum, 
-                                             agentcollInNum: agentcollInNum, 
-                                             hygieneNum: hygieneNum,
-                                             noMatch: noMatch,  
-                                             attendance: "Attended colleagues:"});
+        res.render("shift/attended", {
+            tablerow: tablerow,
+            collInNum: collInNum,
+            agentcollInNum: agentcollInNum,
+            hygieneNum: hygieneNum,
+            noMatch: noMatch,
+            attendance: "Attended colleagues:"
+        });
     });
 });
-
-
 // New colleagues Create Route
 router.post("/", function(req, res) {
     //Create a new Colleague and save it to the database  (DB)
@@ -416,10 +408,7 @@ router.post("/", function(req, res) {
         }
     });
 });
-
 // Attended colleague archivation
-
-
 // COLLEAGUE SHOW ROUTE
 router.get("/:id", function(req, res) { //order!!!!!!!!of routes
     //find the colleagues with prowided ID
@@ -435,9 +424,7 @@ router.get("/:id", function(req, res) { //order!!!!!!!!of routes
             });
         }
     });
-
 });
-
 // EDIT ROUTE
 router.get("/:id/allocationedit", function(req, res) {
     Colleague.findById(req.params.id, function(err, foundColleague) {
@@ -450,7 +437,6 @@ router.get("/:id/allocationedit", function(req, res) {
         }
     });
 });
-
 //BOOK IN ROUTE 
 //UPDATE ROUTE (update as a PUT request)
 router.put("/:id", function(req, res) {
@@ -477,19 +463,12 @@ router.put("/:id", function(req, res) {
             colleagues.attended = req.body.colleague.attended;
             if (colleagues.attended == true) {
                 colleagues.isIn = colleagues.attended;
-            } 
-
-
+            }
             colleagues.save(colleagues);
             res.redirect("back");
         }
-
     });
-
 });
-
-
-
 // DELETE ROUTE
 router.delete("/:id", function(req, res) {
     //destroy blog
@@ -502,15 +481,10 @@ router.delete("/:id", function(req, res) {
         colleagues.absence = req.body.colleague.absence;
         colleagues.save(colleagues);
         res.redirect("back");
-
     });
     //redirect somewhere
 });
-
-
-
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&"); //v15 Fuzzy search
 }
-
 module.exports = router;
