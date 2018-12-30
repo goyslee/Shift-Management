@@ -42,7 +42,6 @@ passport.deserializeUser(User.deserializeUser());//v6
 
 app.use(function(req, res, next){
     res.locals.currentUser = req.user; //adding currentUser to every single page (header!!!)
-    res.locals.administrator = adminUser;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
    next();
