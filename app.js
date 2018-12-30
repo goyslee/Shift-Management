@@ -11,16 +11,12 @@ var express            = require("express"), // npm install express ejs method-o
     User               = require("./models/user");//v6
 
     // seedDB             = require("./seeds");
-var   administrator = "zkindla";
-
-
 var   colleaguecommentsRoutes    = require("./routes/colleaguecomments");
 var   colleaguesRoutes      = require("./routes/colleagues");
 var   indexRoutes           = require("./routes/index");
 var   shiftRoutes           = require("./routes/shift");
 var   allocatorsRoutes      = require("./routes/allocators");
 
-var adminUser = "zkindla";
 var options = {useMongoClient: true
                 }
 mongoose.Promise = global.Promise;
@@ -34,7 +30,7 @@ app.use(flash());
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({ //v6
-    secret:"newElstreeManager",
+    secret: process.env.SECRETPASS,
     resave: false,
     saveUninitialized: false
 }));
