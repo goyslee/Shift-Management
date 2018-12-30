@@ -895,8 +895,7 @@ router.post("/", middleware.isAdmin, function(req, res) {
             newlyCreated.save();
             newlyCreated.holiday = false;
             newlyCreated.isAllocated = false;
-            newlyCreated.roles[0].hygiene = true;
-            newlyCreated.rating[0].hygiene = 1;
+            
             if (!req.body.colleague.startDate) {
                 newlyCreated.startDate = Date.now();
             }
@@ -926,6 +925,9 @@ router.post("/", middleware.isAdmin, function(req, res) {
             }
              if (newlyCreated.roles[0].rt == true) {
                 newlyCreated.counterBalanceTrained = true
+            }
+            if (!newlyCreated.roles[0]) {
+                newlyCreated.roles[0].hygiene = true;
             }
 
             // if (newlyCreated.roles[0].loading == true) {
@@ -980,7 +982,6 @@ router.put("/:id", middleware.isAdmin, function(req, res) {
             updatedColleague.actualHours = req.body.actualHours;
             updatedColleague.fullName = updatedColleague.firstName + " " + updatedColleague.lastName;
             updatedColleague.roles[0].hygiene = true;
-            updatedColleague.rating[0].hygiene = 1
              if (updatedColleague.roles[0].tip == true) {
                 updatedColleague.roles[0].runner = true;
             } else {
@@ -1025,6 +1026,9 @@ router.put("/:id", middleware.isAdmin, function(req, res) {
                 updatedColleague.counterBalanceTrained = true
             } else {
                 updatedColleague.counterBalanceTrained = false 
+            }
+            if (!updatedColleague.roles[0]) {
+                updatedColleague.roles[0].hygiene = true;
             }
             //  if (updatedColleague.roles[0].loading == true) {
             //     updatedColleague.roles[0].sd = true
