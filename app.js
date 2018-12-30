@@ -12,10 +12,7 @@ var express            = require("express"), // npm install express ejs method-o
 
     // seedDB             = require("./seeds");
 var   administrator = "zkindla";
-var   earlies =  "mongodb://localhost/joballocation_database1_pineham";
-// var   lates   = "mongodb://localhost/joballocation_database_pineham";
-var   lates   = "mongodb://goyslee:falloutX11@ds241664.mlab.com:41664/shiftmanagement";
-var   nights  = "mongodb://localhost/joballocation_database2_pineham";
+
 
 var   colleaguecommentsRoutes    = require("./routes/colleaguecomments");
 var   colleaguesRoutes      = require("./routes/colleagues");
@@ -27,7 +24,7 @@ var adminUser = "zkindla";
 var options = {useMongoClient: true
                 }
 mongoose.Promise = global.Promise;
-mongoose.connect(lates, options);
+mongoose.connect(DATABASEURL, options);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
